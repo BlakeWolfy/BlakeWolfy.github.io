@@ -3,235 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <title>Wolfy Blake</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Projetos, devlogs e experimentos criativos de Wolfy Blake.">
-<meta name="author" content="Wolfy Blake">
 
 <style>
-*{box-sizing:border-box;}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  margin:0;
   min-height:100vh;
-  background: radial-gradient(circle at top, #10162a 0%, #05070f 70%);
+  background:radial-gradient(circle at top,#10162a 0%,#05070f 70%);
   color:#eaeaea;
-  font-family:"Segoe UI", Arial, sans-serif;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:
-    radial-gradient(1px 1px at 20% 30%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 70% 60%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 40% 80%, #fff 50%, transparent 51%);
-  opacity:0.25;
-  pointer-events:none;
-}
-
-/* HERO (primeira tela) */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  font-family:"Segoe UI",Arial,sans-serif;
 }
 
 .container{
-  text-align:center;
-  padding:24px;
-}
-
-.logo{
-  max-width:260px;
-  margin:0 auto 24px;
-  display:block;
-  filter:drop-shadow(0 0 20px rgba(0,255,136,0.4));
-}
-
-.card{
-  background: rgba(10,14,30,0.85);
-  border-radius:20px;
-  padding:28px 24px 32px;
-  max-width:380px;
+  max-width:1000px;
   margin:0 auto;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.05),
-    0 20px 40px rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  padding:40px 24px;
 }
 
-.card h1{
-  margin:0 0 16px;
-  font-size:22px;
-  font-weight:600;
+section{
+  padding:80px 0;
 }
 
-.card p{
-  margin:0 0 20px;
-  font-size:14px;
-  color:#b9c0ff;
+/* HERO */
+.hero{
+  text-align:center;
+  padding-top:60px;
 }
 
-.input{
+.hero img{
+  max-width:520px;
   width:100%;
-  padding:12px 14px;
-  border-radius:12px;
-  border:none;
-  outline:none;
-  margin-bottom:16px;
-  background:#0f1530;
-  color:#fff;
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(0,255,136,0.3);
+  margin-bottom:40px;
 }
 
-.input::placeholder{
-  color:#7a82c7;
+/* CARD */
+.subscribe{
+  max-width:420px;
+  margin:0 auto;
+  background:rgba(10,14,30,0.75);
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
-.btn{
-  display:block;
+.subscribe h2{
+  margin-bottom:12px;
+}
+
+.subscribe p{
+  opacity:0.85;
+  margin-bottom:20px;
+}
+
+.subscribe input{
   width:100%;
   padding:14px;
   border-radius:14px;
+  border:none;
+  outline:none;
+  background:#0c1230;
+  color:#eaeaea;
+  margin-bottom:16px;
+}
+
+.subscribe button{
+  width:100%;
+  padding:14px;
+  border-radius:16px;
+  border:none;
+  font-weight:700;
   background:linear-gradient(135deg,#00ff88,#00cc6a);
   color:#032013;
-  font-weight:700;
-  border:none;
   cursor:pointer;
-  box-shadow:0 0 25px rgba(0,255,136,0.5);
-  transition:transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow:0 0 25px rgba(0,255,136,0.6);
 }
 
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 35px rgba(0,255,136,0.8);
-}
-
-.footer{
-  margin-top:16px;
-  font-size:10px;
-  letter-spacing:2px;
+.subscribe small{
+  display:block;
+  margin-top:12px;
   opacity:0.6;
+  text-align:center;
 }
 
+/* EXPLORE */
 .explore{
-  margin-top:24px;
-  font-size:24px;
-  opacity:0.7;
+  text-align:center;
+  margin-top:80px;
+  font-size:20px;
+  opacity:0.8;
 }
 
-.explore a{
+/* PROJETO ATUAL */
+.project-current{
+  text-align:center;
+}
+
+.project-label{
+  display:block;
+  margin-bottom:20px;
+  font-size:18px;
+  letter-spacing:2px;
+  opacity:0.8;
+}
+
+.project-image{
+  width:100%;
+  max-width:650px;
+  border-radius:20px;
+  box-shadow:0 0 45px rgba(0,255,136,0.35);
+  margin-bottom:32px;
+}
+
+/* PROGRESSO */
+.progress-container{
+  width:100%;
+  max-width:650px;
+  margin:0 auto;
+  background:rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:6px;
+}
+
+.progress-bar{
+  width:var(--progress);
+  height:20px;
+  background:linear-gradient(135deg,#00ff88,#00cc6a);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding-right:12px;
+  box-shadow:0 0 20px rgba(0,255,136,0.6);
+}
+
+.progress-text{
+  font-size:12px;
+  font-weight:700;
+  color:#032013;
+}
+
+/* LINK PROJETOS */
+.project-link{
+  margin-top:16px;
+  display:block;
+  font-size:14px;
+}
+
+.project-link a{
   color:#9affc7;
   text-decoration:none;
 }
 
-/* SEÇÃO ABAIXO (scroll) */
-.section{
-  padding:100px 24px;
+.project-link a:hover{
+  text-decoration:underline;
 }
 
-.section-content{
-  max-width:900px;
-  margin:0 auto;
+/* FOOTER */
+footer{
   text-align:center;
-}
-
-.section h2{
-  font-size:28px;
-  margin-bottom:16px;
-}
-
-.section p{
-  font-size:16px;
-  color:#b9c0ff;
-  line-height:1.6;
+  padding:40px 0 20px;
+  opacity:0.4;
+  font-size:12px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
+<div class="container">
 
-    <img src="assets/imagens/wolfy-banner.png" alt="Wolfy Blake" class="logo">
+  <!-- HERO -->
+  <section class="hero">
+    <img src="assets/imagens/banner.png" alt="Wolfy Blake">
 
-    <div class="card">
-      <h1>Assine para receber updates!</h1>
+    <div class="subscribe">
+      <h2>Assine para receber updates!</h2>
       <p>Projetos, devlogs e experimentos criativos.</p>
 
-      <label for="email" style="display:none;">E-mail</label>
-      <input
-        class="input"
-        type="email"
-        id="email"
-        placeholder="Seu melhor e-mail..."
-        required
+      <input type="email" placeholder="Seu melhor e-mail...">
+      <button>Receber updates</button>
+
+      <small>Após enviar, veja os projetos</small>
+    </div>
+
+    <div class="explore">explore ↓</div>
+  </section>
+
+  <!-- PROJETO ATUAL -->
+  <section id="projeto-atual">
+    <div class="project-current">
+
+      <span class="project-label">Projeto atual</span>
+
+      <img
+        src="assets/imagens/lirons-museum.png"
+        alt="Liron's Museum"
+        class="project-image"
       >
 
-      <button class="btn" id="signupBtn">Receber updates</button>
-
-      <p style="font-size:12px; opacity:0.7; margin-top:8px;">
-        Após enviar,
-        <a href="projects.html" style="color:#9affc7;">veja os projetos</a>
-      </p>
-
-      <div class="footer">WOLFY GITHUB</div>
-    </div>
-
-    <div class="explore">
-      <a href="#sobre">explore ↓</a>
-    </div>
-
-  </div>
-</section>
-
-<section class="section" id="sobre">
-  <div class="project-current">
-
-    <span class="project-label">Projeto atual</span>
-
-    <img
-      src="assets/imagens/lirons-museum.png"
-      alt="Liron's Museum"
-      class="project-image"
-    >
-
-    <div class="progress-container">
-      <div class="progress-bar" style="--progress: 1%;">
-        <span class="progress-text">1%</span>
+      <!-- ALTERE APENAS A % -->
+      <div class="progress-container">
+        <div class="progress-bar" style="--progress: 1%;">
+          <span class="progress-text">1%</span>
+        </div>
       </div>
+
+      <!-- LINK ADICIONADO -->
+      <div class="project-link">
+        <a href="projects.html">visite a página de projetos</a>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+</div>
 
-<script>
-document.getElementById("signupBtn").addEventListener("click", function () {
-  const email = document.getElementById("email").value.trim();
-
-  if (email === "") {
-    alert("Digite seu e-mail antes de continuar!");
-    return;
-  }
-
-  if (!email.includes("@")) {
-    alert("Digite um e-mail válido!");
-    return;
-  }
-
-  alert("E-mail cadastrado com sucesso! (simulado, totalmente grátis)");
-  window.location.href = "projects.html";
-});
-</script>
+<footer>
+  WOLFY GITHUB
+</footer>
 
 </body>
-</html>
+  </html>
