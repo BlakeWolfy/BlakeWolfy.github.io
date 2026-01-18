@@ -6,10 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       min-height: 100vh;
@@ -21,7 +18,6 @@
       justify-content: center;
     }
 
-    /* estrelas simples */
     body::before {
       content: "";
       position: fixed;
@@ -34,10 +30,7 @@
       pointer-events: none;
     }
 
-    .container {
-      text-align: center;
-      padding: 24px;
-    }
+    .container { text-align: center; padding: 24px; }
 
     .logo {
       max-width: 260px;
@@ -58,19 +51,10 @@
       backdrop-filter: blur(10px);
     }
 
-    .card h1 {
-      margin: 0 0 16px;
-      font-size: 22px;
-      font-weight: 600;
-    }
+    .card h1 { margin: 0 0 16px; font-size: 22px; font-weight: 600; }
+    .card p { margin: 0 0 20px; font-size: 14px; color: #b9c0ff; }
 
-    .card p {
-      margin: 0 0 20px;
-      font-size: 14px;
-      color: #b9c0ff;
-    }
-
-    .input {
+    input.input {
       width: 100%;
       padding: 12px 14px;
       border-radius: 12px;
@@ -80,12 +64,9 @@
       background: #0f1530;
       color: #fff;
     }
+    input.input::placeholder { color: #7a82c7; }
 
-    .input::placeholder {
-      color: #7a82c7;
-    }
-
-    .btn {
+    button.btn {
       display: block;
       width: 100%;
       padding: 14px;
@@ -93,12 +74,12 @@
       background: linear-gradient(135deg, #00ff88, #00cc6a);
       color: #032013;
       font-weight: 700;
-      text-decoration: none;
+      border: none;
+      cursor: pointer;
       box-shadow: 0 0 25px rgba(0,255,136,0.5);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-
-    .btn:hover {
+    button.btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 0 35px rgba(0,255,136,0.8);
     }
@@ -115,11 +96,7 @@
       font-size: 12px;
       opacity: 0.6;
     }
-
-    .explore a {
-      color: #9affc7;
-      text-decoration: none;
-    }
+    .explore a { color: #9affc7; text-decoration: none; }
   </style>
 </head>
 
@@ -127,21 +104,18 @@
   <div class="container">
 
     <!-- LOGO / IMAGEM -->
-    <img src="assets/imagens/wolfy-banner.png"
-         alt="Wolfy Blake"
-         class="logo" />
+    <img src="assets/images/wolfy.png" alt="Wolfy Blake" class="logo" />
 
     <!-- CARD CENTRAL -->
     <div class="card">
       <h1>Assine para receber updates!</h1>
       <p>Projetos, devlogs e experimentos criativos.</p>
 
-      <!-- visual apenas (não envia e-mail ainda) -->
-      <input class="input" type="email" placeholder="Seu melhor e-mail..." />
-
-      <a class="btn" href="projects.html">
-        Explorar projetos
-      </a>
+      <!-- FORMULÁRIO DE E-MAIL -->
+      <form action="https://formspree.io/f/mayvlqzn" method="POST">
+        <input class="input" type="email" name="email" placeholder="Seu melhor e-mail..." required />
+        <button class="btn" type="submit">Receber updates</button>
+      </form>
 
       <div class="footer">
         COSMIC DESIGN STUDIO
