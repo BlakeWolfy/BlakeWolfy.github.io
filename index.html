@@ -21,15 +21,9 @@ body{
   padding:40px 24px;
 }
 
-section{
-  padding:80px 0;
-}
+section{ padding:80px 0; }
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding-top:60px;
-}
+.hero{ text-align:center; padding-top:60px; }
 
 .hero img{
   max-width:520px;
@@ -39,7 +33,6 @@ section{
   margin-bottom:40px;
 }
 
-/* CARD */
 .subscribe{
   max-width:420px;
   margin:0 auto;
@@ -49,21 +42,14 @@ section{
   box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
-.subscribe h2{
-  margin-bottom:12px;
-}
-
-.subscribe p{
-  opacity:0.85;
-  margin-bottom:20px;
-}
+.subscribe h2{ margin-bottom:12px; }
+.subscribe p{ opacity:0.85; margin-bottom:20px; }
 
 .subscribe input{
   width:100%;
   padding:14px;
   border-radius:14px;
   border:none;
-  outline:none;
   background:#0c1230;
   color:#eaeaea;
   margin-bottom:16px;
@@ -78,96 +64,12 @@ section{
   background:linear-gradient(135deg,#00ff88,#00cc6a);
   color:#032013;
   cursor:pointer;
-  box-shadow:0 0 25px rgba(0,255,136,0.6);
 }
 
-.subscribe small{
-  display:block;
+#msg{
   margin-top:12px;
-  opacity:0.6;
-  text-align:center;
-}
-
-/* EXPLORE */
-.explore{
-  text-align:center;
-  margin-top:80px;
-  font-size:20px;
-  opacity:0.8;
-}
-
-/* PROJETO ATUAL */
-.project-current{
-  text-align:center;
-}
-
-.project-label{
-  display:block;
-  margin-bottom:20px;
-  font-size:18px;
-  letter-spacing:2px;
-  opacity:0.8;
-}
-
-.project-image{
-  width:100%;
-  max-width:420px;
-  height:auto;
-  border-radius:20px;
-  box-shadow:0 0 35px rgba(0,255,136,0.35);
-  margin-bottom:28px;
-}
-
-/* PROGRESSO */
-.progress-container{
-  width:100%;
-  max-width:650px;
-  margin:0 auto;
-  background:rgba(255,255,255,0.08);
-  border-radius:16px;
-  padding:6px;
-}
-
-.progress-bar{
-  width:var(--progress);
-  height:20px;
-  background:linear-gradient(135deg,#00ff88,#00cc6a);
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  padding-right:12px;
-  box-shadow:0 0 20px rgba(0,255,136,0.6);
-}
-
-.progress-text{
-  font-size:12px;
-  font-weight:700;
-  color:#032013;
-}
-
-/* LINK PROJETOS */
-.project-link{
-  margin-top:16px;
-  display:block;
   font-size:14px;
-}
-
-.project-link a{
-  color:#9affc7;
-  text-decoration:none;
-}
-
-.project-link a:hover{
-  text-decoration:underline;
-}
-
-/* FOOTER */
-footer{
   text-align:center;
-  padding:40px 0 20px;
-  opacity:0.4;
-  font-size:12px;
 }
 </style>
 </head>
@@ -175,103 +77,58 @@ footer{
 <body>
 
 <div class="container">
+<section class="hero">
+  <img src="assets/imagens/wolfy-banner.png" alt="Wolfy Blake">
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="assets/imagens/wolfy-banner.png" alt="Wolfy Blake">
+  <div class="subscribe">
+    <h2>Assine para receber updates!</h2>
+    <p>Projetos, devlogs e experimentos criativos.</p>
 
-    <div class="subscribe">
-      <h2>Assine para receber updates!</h2>
-      <p>Projetos, devlogs e experimentos criativos.</p>
+    <form id="signupForm">
+      <input type="email" id="email" placeholder="Seu melhor e-mail..." required>
+      <button type="submit">Receber updates</button>
+    </form>
 
-      <!-- FORMULARIO COM JS PARA VERCEL -->
-      <form id="signup-form">
-        <input
-          type="email"
-          id="email"
-          placeholder="Seu melhor e-mail..."
-          required
-        >
-        <button type="submit">Receber updates</button>
-      </form>
-
-      <small id="form-message" style="display:none"></small>
-    </div>
-
-    <div class="explore">explore ↓</div>
-  </section>
-
-  <!-- PROJETO ATUAL -->
-  <section id="projeto-atual">
-    <div class="project-current">
-
-      <span class="project-label">Projeto atual</span>
-
-      <img
-        src="assets/imagens/lirons-museum.png"
-        alt="Liron's Museum"
-        class="project-image"
-      >
-
-      <div class="progress-container">
-        <div class="progress-bar" style="--progress: 1%;">
-          <span class="progress-text">1%</span>
-        </div>
-      </div>
-
-      <div class="project-link">
-        <a href="projects.html">visite a página de projetos</a>
-      </div>
-
-    </div>
-  </section>
-
+    <div id="msg"></div>
+  </div>
+</section>
 </div>
 
-<footer>
-  WOLFY GITHUB
-</footer>
-
-<!-- JAVASCRIPT DE ENVIO -->
 <script>
-const form = document.getElementById("signup-form");
-const message = document.getElementById("form-message");
+const form = document.getElementById("signupForm");
+const msg = document.getElementById("msg");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value.trim();
+  const email = document.getElementById("email").value;
 
-  message.style.display = "block";
-  message.style.opacity = "0.8";
-  message.style.color = "#eaeaea";
-  message.textContent = "Enviando...";
+  msg.textContent = "Enviando...";
+  msg.style.opacity = 0.7;
 
   try {
-    const response = await fetch(
+    const res = await fetch(
       "https://wolfy-signup-backend.vercel.app/api/subscribe",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })
       }
     );
 
-    const data = await response.json();
+    const data = await res.json();
 
-    if (!response.ok) {
-      message.textContent = data.error || "Erro ao enviar";
-      return;
+    if (data.success) {
+      msg.textContent = "Email cadastrado com sucesso!";
+      msg.style.color = "#00ff88";
+      form.reset();
+    } else {
+      msg.textContent = "Erro ao cadastrar email.";
+      msg.style.color = "red";
     }
-
-    message.style.color = "#00ff88";
-    message.textContent = "Cadastro realizado com sucesso 🚀";
-    form.reset();
-
   } catch (err) {
-    message.textContent = "Erro de conexão";
+    msg.textContent = "Erro de conexão.";
+    msg.style.color = "red";
   }
 });
 </script>
