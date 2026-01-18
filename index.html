@@ -184,18 +184,18 @@ footer{
       <h2>Assine para receber updates!</h2>
       <p>Projetos, devlogs e experimentos criativos.</p>
 
-      <!-- FORM FUNCIONAL COM PHP -->
-      <form action="subscribe.php" method="POST">
+      <!-- FORMULARIO COM JS PARA VERCEL -->
+      <form id="signup-form">
         <input
           type="email"
-          name="email"
+          id="email"
           placeholder="Seu melhor e-mail..."
           required
         >
         <button type="submit">Receber updates</button>
       </form>
 
-      <small>Após enviar, veja os projetos</small>
+      <small id="form-message" style="display:none"></small>
     </div>
 
     <div class="explore">explore ↓</div>
@@ -231,6 +231,50 @@ footer{
 <footer>
   WOLFY GITHUB
 </footer>
+
+<!-- JAVASCRIPT DE ENVIO -->
+<script>
+const form = document.getElementById("signup-form");
+const message = document.getElementById("form-message");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+
+  message.style.display = "block";
+  message.style.opacity = "0.8";
+  message.style.color = "#eaeaea";
+  message.textContent = "Enviando...";
+
+  try {
+    const response = await fetch(
+      "https://wolfy-signup-backend.vercel.app/api/subscribe",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      message.textContent = data.error || "Erro ao enviar";
+      return;
+    }
+
+    message.style.color = "#00ff88";
+    message.textContent = "Cadastro realizado com sucesso 🚀";
+    form.reset();
+
+  } catch (err) {
+    message.textContent = "Erro de conexão";
+  }
+});
+</script>
 
 </body>
 </html>
