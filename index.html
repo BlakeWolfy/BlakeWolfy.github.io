@@ -1,4 +1,157 @@
-<h1>Wolfy Blake</h1>
-<p>Projetos e devlogs criativos</p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wolfy Blake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<a href="projects.html">Ver projetos</a>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #10162a 0%, #05070f 70%);
+      color: #eaeaea;
+      font-family: "Segoe UI", Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* estrelas simples */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 70% 60%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 40% 80%, #fff 50%, transparent 51%);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .container {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .logo {
+      max-width: 260px;
+      margin: 0 auto 24px;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.4));
+    }
+
+    .card {
+      background: rgba(10, 14, 30, 0.75);
+      border-radius: 20px;
+      padding: 28px 24px 32px;
+      max-width: 380px;
+      margin: 0 auto;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 20px 40px rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .card h1 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin: 0 0 20px;
+      font-size: 14px;
+      color: #b9c0ff;
+    }
+
+    .input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      margin-bottom: 16px;
+      background: #0f1530;
+      color: #fff;
+    }
+
+    .input::placeholder {
+      color: #7a82c7;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #00ff88, #00cc6a);
+      color: #032013;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(0,255,136,0.5);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(0,255,136,0.8);
+    }
+
+    .footer {
+      margin-top: 16px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      opacity: 0.6;
+    }
+
+    .explore {
+      margin-top: 28px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    .explore a {
+      color: #9affc7;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- LOGO / IMAGEM -->
+    <img src="assets/imagens/wolfy-banner.png"
+         alt="Wolfy Blake"
+         class="logo" />
+
+    <!-- CARD CENTRAL -->
+    <div class="card">
+      <h1>Assine para receber updates!</h1>
+      <p>Projetos, devlogs e experimentos criativos.</p>
+
+      <!-- visual apenas (não envia e-mail ainda) -->
+      <input class="input" type="email" placeholder="Seu melhor e-mail..." />
+
+      <a class="btn" href="projects.html">
+        Explorar projetos
+      </a>
+
+      <div class="footer">
+        COSMIC DESIGN STUDIO
+      </div>
+    </div>
+
+    <div class="explore">
+      <a href="projects.html">explore ↓</a>
+    </div>
+
+  </div>
+</body>
+</html>
