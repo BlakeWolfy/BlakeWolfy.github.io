@@ -11,15 +11,16 @@
 <style>
 *{box-sizing:border-box;}
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   min-height:100vh;
   background: radial-gradient(circle at top, #10162a 0%, #05070f 70%);
   color:#eaeaea;
   font-family:"Segoe UI", Arial, sans-serif;
-  display:flex;
-  align-items:center;
-  justify-content:center;
 }
 
 body::before{
@@ -32,6 +33,14 @@ body::before{
     radial-gradient(1px 1px at 40% 80%, #fff 50%, transparent 51%);
   opacity:0.25;
   pointer-events:none;
+}
+
+/* HERO (primeira tela) */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .container{
@@ -122,42 +131,80 @@ body::before{
   color:#9affc7;
   text-decoration:none;
 }
+
+/* SEÇÃO ABAIXO (scroll) */
+.section{
+  padding:100px 24px;
+}
+
+.section-content{
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.section h2{
+  font-size:28px;
+  margin-bottom:16px;
+}
+
+.section p{
+  font-size:16px;
+  color:#b9c0ff;
+  line-height:1.6;
+}
 </style>
 </head>
 
 <body>
-<div class="container">
 
-  <img src="assets/imagens/wolfy-banner.png" alt="Wolfy Blake" class="logo">
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
 
-  <div class="card">
-    <h1>Assine para receber updates!</h1>
-    <p>Projetos, devlogs e experimentos criativos.</p>
+    <img src="assets/imagens/wolfy-banner.png" alt="Wolfy Blake" class="logo">
 
-    <label for="email" style="display:none;">E-mail</label>
-    <input
-      class="input"
-      type="email"
-      id="email"
-      placeholder="Seu melhor e-mail..."
-      required
-    >
+    <div class="card">
+      <h1>Assine para receber updates!</h1>
+      <p>Projetos, devlogs e experimentos criativos.</p>
 
-    <button class="btn" id="signupBtn">Receber updates</button>
+      <label for="email" style="display:none;">E-mail</label>
+      <input
+        class="input"
+        type="email"
+        id="email"
+        placeholder="Seu melhor e-mail..."
+        required
+      >
 
-    <p style="font-size:12px; opacity:0.7; margin-top:8px;">
-      Após enviar,
-      <a href="projects.html" style="color:#9affc7;">veja os projetos</a>
+      <button class="btn" id="signupBtn">Receber updates</button>
+
+      <p style="font-size:12px; opacity:0.7; margin-top:8px;">
+        Após enviar,
+        <a href="projects.html" style="color:#9affc7;">veja os projetos</a>
+      </p>
+
+      <div class="footer">WOLFY GITHUB</div>
+    </div>
+
+    <div class="explore">
+      <a href="#sobre">explore ↓</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- NOVA SEÇÃO (SCROLL) -->
+<section class="section" id="sobre">
+  <div class="section-content">
+    <h2>Sobre meus projetos</h2>
+    <p>
+      Aqui você pode adicionar textos mais longos sobre seus projetos,
+      ideias, universos criativos, devlogs futuros, roadmap ou qualquer
+      informação nova que quiser compartilhar.
     </p>
-
-    <div class="footer">WOLFY GITHUB</div>
   </div>
-
-  <div class="explore">
-    <a href="projects.html">explore ↓</a>
-  </div>
-
-</div>
+</section>
 
 <script>
 document.getElementById("signupBtn").addEventListener("click", function () {
