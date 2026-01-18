@@ -7,78 +7,33 @@
 
 <style>
 *{box-sizing:border-box;}
-body{
-  margin:0;
-  min-height:100vh;
-  background: radial-gradient(circle at top, #10162a 0%, #05070f 70%);
-  color:#eaeaea;
-  font-family:"Segoe UI", Arial, sans-serif;
-}
+body{margin:0;min-height:100vh;background: radial-gradient(circle at top, #10162a 0%, #05070f 70%);color:#eaeaea;font-family:"Segoe UI", Arial, sans-serif;}
 .container{max-width:900px;margin:0 auto;padding:24px;}
 h1{text-align:center;margin-bottom:32px;}
-.projeto{
-  background:rgba(10,14,30,0.75);
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.6);
-}
-.projeto img{
-  max-width:300px;
-  margin-bottom:16px;
-  border-radius:12px;
-  filter: drop-shadow(0 0 15px rgba(0,255,136,0.5));
-}
-.projeto a{
-  margin-top:12px;
-  display:inline-block;
-  padding:10px 20px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#00ff88,#00cc6a);
-  color:#032013;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:0 0 20px rgba(0,255,136,0.5);
-  transition:0.15s;
-}
-.projeto a:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 30px rgba(0,255,136,0.8);
-}
-.nav{
-  text-align:center;
-  margin-bottom:40px;
-}
-.nav a{
-  margin:0 10px;
-  color:#9affc7;
-  text-decoration:none;
-}
+.projeto{background:rgba(10,14,30,0.75);border-radius:16px;padding:20px;margin-bottom:20px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.6);}
+.projeto img{max-width:300px;margin-bottom:16px;border-radius:12px;filter: drop-shadow(0 0 15px rgba(0,255,136,0.5));}
+.projeto a{margin-top:12px;display:inline-block;padding:10px 20px;border-radius:12px;background:linear-gradient(135deg,#00ff88,#00cc6a);color:#032013;font-weight:700;text-decoration:none;box-shadow:0 0 20px rgba(0,255,136,0.5);transition:0.15s;}
+.projeto a:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(0,255,136,0.8);}
+.nav{text-align:center;margin-bottom:40px;}
+.nav a{margin:0 10px;color:#9affc7;text-decoration:none;}
 .nav a:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
 <div class="container">
 
-  <div class="nav">
-    <a href="../index.html">Home</a> | 
-    <a href="projects.html">Projetos</a>
-  </div>
+<div class="nav">
+  <a href="index.html">Home</a> | <a href="projects.html">Projetos</a>
+</div>
 
-  <h1>Projetos</h1>
+<h1>Projetos</h1>
 
-  <div class="projeto">
-    <img src="assets/imagens/lirons-museum.png" alt="Liron's Museum">
-    <h2>Liron's Museum</h2>
-    <p>Projeto artístico e experimental, focado em criatividade e design dark/cosmic.</p>
-    <a href="projects/devlog/LironsMuseum.html">Ver devlog</a>
-  </div>
-
-  <!-- Aqui você pode duplicar .projeto para outros projetos -->
+<div class="projeto">
+  <img src="assets/imagens/lirons-museum.png" alt="Liron's Museum">
+  <h2>Liron's Museum</h2>
+  <p>Projeto artístico e experimental, focado em criatividade e design dark/cosmic.</p>
+  <a href="projects/devlog/LironsMuseum.html">Ver devlog</a>
+</div>
 
 </div>
 </body>
