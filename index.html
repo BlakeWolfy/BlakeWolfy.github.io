@@ -111,12 +111,12 @@ section{
 
 .project-image{
   width:100%;
-  max-width:420px;   /* <<< controla o tamanho */
+  max-width:420px;
   height:auto;
   border-radius:20px;
   box-shadow:0 0 35px rgba(0,255,136,0.35);
   margin-bottom:28px;
-  }
+}
 
 /* PROGRESSO */
 .progress-container{
@@ -184,8 +184,16 @@ footer{
       <h2>Assine para receber updates!</h2>
       <p>Projetos, devlogs e experimentos criativos.</p>
 
-      <input type="email" placeholder="Seu melhor e-mail...">
-      <button>Receber updates</button>
+      <!-- FORM FUNCIONAL COM PHP -->
+      <form action="subscribe.php" method="POST">
+        <input
+          type="email"
+          name="email"
+          placeholder="Seu melhor e-mail..."
+          required
+        >
+        <button type="submit">Receber updates</button>
+      </form>
 
       <small>Após enviar, veja os projetos</small>
     </div>
@@ -205,14 +213,12 @@ footer{
         class="project-image"
       >
 
-      <!-- ALTERE APENAS A % -->
       <div class="progress-container">
         <div class="progress-bar" style="--progress: 1%;">
           <span class="progress-text">1%</span>
         </div>
       </div>
 
-      <!-- LINK ADICIONADO -->
       <div class="project-link">
         <a href="projects.html">visite a página de projetos</a>
       </div>
@@ -227,4 +233,4 @@ footer{
 </footer>
 
 </body>
-  </html>
+</html>
