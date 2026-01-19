@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* Variáveis de cores */
 :root {
   --color-ex: #ffffff;
   --color-a: #ff4444;
@@ -18,129 +17,145 @@
   --color-subf: #dddddd;
   --color-primary: #ffaa00;
   --color-none: #66ccff;
+
+  --orange-glow: rgba(255,170,0,0.45);
 }
 
-/* Reset básico */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  min-height:100vh;
+  background: radial-gradient(circle at top,#2a1405 0%,#0f0705 70%);
+  color:#ffe9d6;
+  font-family:"Segoe UI", Arial, sans-serif;
 }
 
-body {
-  min-height: 100vh;
-  background: radial-gradient(circle at top,#10162a 0%,#05070f 70%);
-  color: #eaeaea;
-  font-family: "Segoe UI", Arial, sans-serif;
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:40px 24px;
 }
 
-/* Container centralizado */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 24px;
+h1{
+  text-align:center;
+  margin-bottom:12px;
+  color:#ffb347;
+  text-shadow:0 0 20px var(--orange-glow);
 }
 
-/* Títulos */
-h1 {
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-.subtitle {
-  text-align: center;
-  opacity: 0.7;
-  margin-bottom: 50px;
+.subtitle{
+  text-align:center;
+  opacity:.75;
+  margin-bottom:50px;
 }
 
 /* Seções */
-.section {
-  margin-bottom: 64px;
+.section{
+  margin-bottom:64px;
 }
 
-.section h2 {
-  margin-bottom: 20px;
-  border-left: 4px solid;
-  padding-left: 12px;
+.section h2{
+  margin-bottom:20px;
+  padding-left:12px;
+  border-left:4px solid;
+  cursor:pointer;
+  user-select:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
-  gap: 20px;
+.section h2::after{
+  content:"▼";
+  font-size:14px;
+  opacity:.7;
+  transition:transform .25s ease;
 }
 
-/* Card */
-.card {
-  background: rgba(10,14,30,0.75);
-  border-radius: 16px;
-  padding: 14px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.section.collapsed h2::after{
+  transform:rotate(-90deg);
 }
 
-/* Imagem dentro do card */
-.card img {
-  width: 100%;
-  height: 160px;
-  min-height: 120px;
-  object-fit: contain;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  background: #0c1230;
-  display: block;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:20px;
+  overflow:hidden;
+  transition:max-height .4s ease, opacity .3s ease;
 }
 
-/* Texto dos cards */
-.card p {
-  font-size: 14px;
-  opacity: 0.9;
-  text-align: center;
+.section.collapsed .grid{
+  max-height:0;
+  opacity:0;
+  pointer-events:none;
 }
 
-/* Cards sem imagem (Leads) centralizados */
-.card.no-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 180px;
+.section:not(.collapsed) .grid{
+  max-height:5000px;
+  opacity:1;
 }
 
-/* Classes de cores */
-.ex h2 { border-color: var(--color-ex); }
-.a h2 { border-color: var(--color-a); }
-.b h2 { border-color: var(--color-b); }
-.c h2 { border-color: var(--color-c); }
-.d h2 { border-color: var(--color-d); }
-.e h2 { border-color: var(--color-e); }
-.f h2 { border-color: var(--color-f); }
-.subf h2 { border-color: var(--color-subf); }
-.primary h2 { border-color: var(--color-primary); }
-.none h2 { border-color: var(--color-none); }
-
-/* Link de volta */
-.back-link {
-  text-align: center;
-  margin: 40px 0;
-}
-.back-link a {
-  color: #8bbcff;
-  text-decoration: none;
-  font-size: 14px;
-  opacity: 0.8;
+/* Cards */
+.card{
+  background:rgba(20,10,5,0.75);
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+  box-shadow:0 0 18px rgba(255,170,0,0.15);
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
-/* Responsividade */
-@media (max-width: 400px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 12px;
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:contain;
+  border-radius:12px;
+  margin-bottom:10px;
+  background:#1a0c05;
+}
+
+.card p{
+  font-size:14px;
+  opacity:.95;
+}
+
+.card.no-img{
+  justify-content:center;
+  min-height:180px;
+}
+
+/* Cores das classes */
+.ex h2{border-color:var(--color-ex);}
+.a h2{border-color:var(--color-a);}
+.b h2{border-color:var(--color-b);}
+.c h2{border-color:var(--color-c);}
+.d h2{border-color:var(--color-d);}
+.e h2{border-color:var(--color-e);}
+.f h2{border-color:var(--color-f);}
+.subf h2{border-color:var(--color-subf);}
+.primary h2{border-color:var(--color-primary);}
+.none h2{border-color:var(--color-none);}
+
+/* Voltar */
+.back-link{
+  text-align:center;
+  margin:40px 0;
+}
+.back-link a{
+  color:#ffb347;
+  text-decoration:none;
+  opacity:.8;
+}
+
+/* Mobile */
+@media(max-width:400px){
+  .grid{
+    grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+    gap:12px;
   }
 }
 </style>
@@ -169,11 +184,6 @@ h1 {
   <div class="card"><img src="/assets/imagens/lirons-museum/b/cardog-cardboard-card.png"><p>Cardog Cardboard</p></div>
   <div class="card"><img src="/assets/imagens/lirons-museum/b/violet-lizzy-card.png"><p>Violet & Lizzy</p></div>
   <div class="card"><img src="/assets/imagens/lirons-museum/b/garrett-watertraveller-card.png"><p>Garrett Watertraveller</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/b/matt-masquerade-card.png"><p>Matt Masquerade</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/b/willy-partey-card.png"><p>Willy Partey</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/b/lily-foldery-card.png"><p>Lily Foldery</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/b/lurian-nautrelis-card.png"><p>Lurian Nautrelis</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/b/luki-crocogator-card.png"><p>Luki Crocogator</p></div>
 </div>
 </section>
 
@@ -182,14 +192,6 @@ h1 {
 <h2>🟨 Classe C</h2>
 <div class="grid">
   <div class="card"><img src="/assets/imagens/lirons-museum/c/dylan-summery-card.png"><p>Dylan Summery</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/c/lunaris-aurelyn-card.png"><p>Lunaris Aurelyn</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/c/mike-hardshell-card.png"><p>Mike Hardshell</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/c/maris-seastar-card.png"><p>Maris SeaStar</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/c/milly-verdant-card.png"><p>Milly Verdant</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/c/creamy-sweetmilk-card.png"><p>Creamy SweetMilk</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/c/sarah-brooks-card.png"><p>Sarah Brooks</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/c/jesse-deepecho-card.png"><p>Jesse DeepEcho</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/c/vexel-sharduntis-card.png"><p>Vexel Sharduntis</p></div>
 </div>
 </section>
 
@@ -201,15 +203,10 @@ h1 {
     <img src="/assets/imagens/lirons-museum/d/blyenn-bluefield-card.png">
     <p id="bluy-name" style="cursor:pointer;">Blyenn Bluefield (Bluy)</p>
   </div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/d/hazel-icedcream-card.png"><p>Hazel Icedcream</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/d/shiro-card.png"><p>Shiro</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/d/solaris-novartis-card.png"><p>Solaris Novartis</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/d/v1rus-n3x0r-card.png"><p>V1rus / N3x0r</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/d/rose-sanghwaje-card.png"><p>Rose Sanghwaje</p></div>
 </div>
 </section>
 
-<!-- F (Leads - sem imagem) -->
+<!-- F -->
 <section class="section f">
 <h2>🟪 Classe F (Leads)</h2>
 <div class="grid">
@@ -233,19 +230,24 @@ h1 {
 
 </div>
 
-<!-- Scripts -->
 <script>
-// Fallback automático para imagens inexistentes
-document.querySelectorAll("img").forEach(img => {
-  img.onerror = () => {
-    img.onerror = null;
-    img.src = "/assets/imagens/lirons-museum/not-found-card.png";
+// Fallback de imagem
+document.querySelectorAll("img").forEach(img=>{
+  img.onerror=()=>{
+    img.src="/assets/imagens/lirons-museum/not-found-card.png";
   };
 });
 
-// Easter egg: clique no Bluy
-document.getElementById("bluy-name").addEventListener("click", () => {
-  window.location.href = "https://blakewolfy.github.io/LM-bluy.html";
+// Toggle das classes
+document.querySelectorAll(".section h2").forEach(title=>{
+  title.addEventListener("click",()=>{
+    title.parentElement.classList.toggle("collapsed");
+  });
+});
+
+// Easter egg Bluy
+document.getElementById("bluy-name")?.addEventListener("click",()=>{
+  window.location.href="https://blakewolfy.github.io/LM-bluy.html";
 });
 </script>
 
