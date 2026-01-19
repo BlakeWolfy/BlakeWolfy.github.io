@@ -6,79 +6,133 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-  min-height:100vh;
-  background:radial-gradient(circle at top,#10162a 0%,#05070f 70%);
-  color:#eaeaea;
-  font-family:"Segoe UI",Arial,sans-serif;
+/* Variáveis de cores */
+:root {
+  --color-ex: #ffffff;
+  --color-a: #ff4444;
+  --color-b: #ff9933;
+  --color-c: #ffdd55;
+  --color-d: #55ff88;
+  --color-e: #55aaff;
+  --color-f: #bb66ff;
+  --color-subf: #dddddd;
+  --color-primary: #ffaa00;
+  --color-none: #66ccff;
 }
 
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:40px 24px;
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-h1{
-  text-align:center;
-  margin-bottom:12px;
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top,#10162a 0%,#05070f 70%);
+  color: #eaeaea;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.subtitle{
-  text-align:center;
-  opacity:0.7;
-  margin-bottom:50px;
+/* Container centralizado */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
 }
 
-.section{
-  margin-bottom:64px;
+/* Títulos */
+h1 {
+  text-align: center;
+  margin-bottom: 12px;
 }
 
-.section h2{
-  margin-bottom:20px;
-  border-left:4px solid #555;
-  padding-left:12px;
+.subtitle {
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 50px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-  gap:20px;
+/* Seções */
+.section {
+  margin-bottom: 64px;
 }
 
-.card{
-  background:rgba(10,14,30,0.75);
-  border-radius:16px;
-  padding:14px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+.section h2 {
+  margin-bottom: 20px;
+  border-left: 4px solid;
+  padding-left: 12px;
 }
 
-.card img{
-  width:100%;
-  border-radius:12px;
-  margin-bottom:10px;
-  background:#0c1230;
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+  gap: 20px;
 }
 
-.card p{
-  font-size:14px;
-  opacity:0.9;
+/* Card */
+.card {
+  background: rgba(10,14,30,0.75);
+  border-radius: 16px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 }
 
-/* Class colors */
-.ex h2{border-color:#ffffff}
-.a h2{border-color:#ff4444}
-.b h2{border-color:#ff9933}
-.c h2{border-color:#ffdd55}
-.d h2{border-color:#55ff88}
-.e h2{border-color:#55aaff}
-.f h2{border-color:#bb66ff}
-.subf h2{border-color:#dddddd}
-.primary h2{border-color:#ffaa00}
-.none h2{border-color:#66ccff}
+/* Imagem dentro do card */
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background: #0c1230;
+}
+
+/* Texto dos cards */
+.card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Cards sem imagem (Leads) centralizados */
+.card.no-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px;
+}
+
+/* Classes de cores */
+.ex h2 { border-color: var(--color-ex); }
+.a h2 { border-color: var(--color-a); }
+.b h2 { border-color: var(--color-b); }
+.c h2 { border-color: var(--color-c); }
+.d h2 { border-color: var(--color-d); }
+.e h2 { border-color: var(--color-e); }
+.f h2 { border-color: var(--color-f); }
+.subf h2 { border-color: var(--color-subf); }
+.primary h2 { border-color: var(--color-primary); }
+.none h2 { border-color: var(--color-none); }
+
+/* Link de volta */
+.back-link {
+  text-align: center;
+  margin: 40px 0;
+}
+.back-link a {
+  color: #8bbcff;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+}
 </style>
 </head>
 
@@ -133,7 +187,10 @@ h1{
 <section class="section d">
 <h2>🟩 Classe D</h2>
 <div class="grid">
-  <div class="card"><img src="assets/imagens/lirons-museum/d/blyenn-bluefield-card.png"><p>Blyenn Bluefield (Bluy)</p></div>
+  <div class="card">
+    <img src="assets/imagens/lirons-museum/d/blyenn-bluefield-card.png">
+    <p id="bluy-name" style="cursor:pointer;">Blyenn Bluefield (Bluy)</p>
+  </div>
   <div class="card"><img src="assets/imagens/lirons-museum/d/hazel-icedcream-card.png"><p>Hazel Icedcream</p></div>
   <div class="card"><img src="assets/imagens/lirons-museum/d/shiro-card.png"><p>Shiro</p></div>
   <div class="card"><img src="assets/imagens/lirons-museum/d/solaris-novartis-card.png"><p>Solaris Novartis</p></div>
@@ -146,9 +203,9 @@ h1{
 <section class="section f">
 <h2>🟪 Classe F (Leads)</h2>
 <div class="grid">
-  <div class="card"><p>Don</p></div>
-  <div class="card"><p>Nixxy</p></div>
-  <div class="card"><p>Condressa Lockie</p></div>
+  <div class="card no-img"><p>Don</p></div>
+  <div class="card no-img"><p>Nixxy</p></div>
+  <div class="card no-img"><p>Condressa Lockie</p></div>
 </div>
 </section>
 
@@ -160,22 +217,25 @@ h1{
 </div>
 </section>
 
-<div style="text-align:center;margin:40px 0;">
-  <a href="https://blakewolfy.github.io/projects.html"
-     style="color:#8bbcff;text-decoration:none;font-size:14px;opacity:0.8;">
-    ← Voltar para Projetos
-  </a>
+<div class="back-link">
+  <a href="https://blakewolfy.github.io/projects.html">← Voltar para Projetos</a>
 </div>
 
 </div>
 
-<!-- Fallback automático para imagens inexistentes -->
+<!-- Scripts -->
 <script>
+// Fallback automático para imagens inexistentes
 document.querySelectorAll("img").forEach(img => {
   img.onerror = () => {
     img.onerror = null;
     img.src = "assets/imagens/lirons-museum/not-found-card.png";
   };
+});
+
+// Easter egg: clique no Bluy
+document.getElementById("bluy-name").addEventListener("click", () => {
+  window.location.href = "https://blakewolfy.github.io/LM-bluy.html";
 });
 </script>
 
