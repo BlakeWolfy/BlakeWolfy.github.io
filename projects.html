@@ -62,7 +62,6 @@ h1{
 .projeto p{opacity:0.85;}
 
 .projeto a{
-  margin-top:12px;
   display:inline-block;
   padding:10px 20px;
   border-radius:12px;
@@ -74,6 +73,15 @@ h1{
 .projeto .secondary{
   background:rgba(255,255,255,0.08);
   box-shadow:none;
+}
+
+/* CONTAINER DE BOTÕES (LIRON) */
+.btn-group{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:14px;
 }
 
 /* ========= TEMAS ========= */
@@ -88,6 +96,7 @@ h1{
   box-shadow:0 0 20px rgba(255,154,46,0.6);
 }
 .lirons a:hover{
+  transform:translateY(-2px);
   box-shadow:0 0 30px rgba(255,154,46,0.9);
 }
 .lirons .secondary{
@@ -102,11 +111,13 @@ h1{
   filter: drop-shadow(0 0 15px rgba(170,230,255,0.7));
 }
 .lfol a{
+  margin-top:12px;
   background:linear-gradient(135deg,#c9f1ff,#8adfff);
   color:#04202a;
   box-shadow:0 0 20px rgba(170,230,255,0.6);
 }
 .lfol a:hover{
+  transform:translateY(-2px);
   box-shadow:0 0 30px rgba(170,230,255,0.9);
 }
 
@@ -115,18 +126,18 @@ h1{
   filter: drop-shadow(0 0 15px rgba(180,120,255,0.7));
 }
 .timerune a{
+  margin-top:12px;
   background:linear-gradient(135deg,#b874ff,#7b3fe4);
   color:#120021;
   box-shadow:0 0 20px rgba(180,120,255,0.6);
 }
 .timerune a:hover{
+  transform:translateY(-2px);
   box-shadow:0 0 30px rgba(180,120,255,0.9);
 }
 
 /* PLACEHOLDER */
-.placeholder img{
-  opacity:0.6;
-}
+.placeholder img{opacity:0.6;}
 .placeholder a{
   background:#555;
   color:#aaa;
@@ -153,9 +164,11 @@ h1{
     <h2>Liron's Museum</h2>
     <p>Projeto: Dandy's World AU.</p>
 
-    <a href="projects/devlog/LironsMuseum.html">Ver devlog</a>
-    <a href="https://www.tiktok.com/@lirons.museum.au" class="secondary" target="_blank">Ver TikTok</a>
-    <a href="https://blakewolfy.github.io/projects/devlog/LironsMuseum-toons.html" class="secondary">Ver Toons</a>
+    <div class="btn-group">
+      <a href="projects/devlog/LironsMuseum.html">Ver devlog</a>
+      <a href="https://www.tiktok.com/@lirons.museum.au" class="secondary" target="_blank">TikTok</a>
+      <a href="https://blakewolfy.github.io/projects/devlog/LironsMuseum-toons.html" class="secondary">Toons</a>
+    </div>
   </div>
 
   <!-- LAST FLAME OF LIFE -->
@@ -163,7 +176,6 @@ h1{
     <img src="assets/imagens/last-flame-of-life.png" alt="Last Flame of Life">
     <h2>Last Flame of Life</h2>
     <p>Projeto: Jogo no Roblox.</p>
-
     <a href="projects/devlog/LFOL.html">Ver devlog</a>
   </div>
 
@@ -172,8 +184,7 @@ h1{
     <img src="assets/imagens/timerune.png" alt="Timerune">
     <h2>Timerune</h2>
     <p>Projeto: Fangame de Deltarune.</p>
-
-    <a href="https://BlakeWolfy.github.io/index.html">Ver devlog</a>
+    <a href="projects/devlog/timerune.html">Ver devlog</a>
   </div>
 
   <!-- PLACEHOLDERS -->
