@@ -7,50 +7,146 @@
 
 <style>
 *{box-sizing:border-box;}
-body{margin:0;min-height:100vh;background: radial-gradient(circle at top, #10162a 0%, #05070f 70%);color:#eaeaea;font-family:"Segoe UI", Arial, sans-serif;}
-.container{max-width:900px;margin:0 auto;padding:24px;}
-h1{text-align:center;margin-bottom:32px;}
-.projeto{background:rgba(10,14,30,0.75);border-radius:16px;padding:20px;margin-bottom:20px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.6);}
-.projeto img{max-width:300px;margin-bottom:16px;border-radius:12px;filter: drop-shadow(0 0 15px rgba(0,255,136,0.5));}
-.projeto a{margin-top:12px;display:inline-block;padding:10px 20px;border-radius:12px;background:linear-gradient(135deg,#00ff88,#00cc6a);color:#032013;font-weight:700;text-decoration:none;box-shadow:0 0 20px rgba(0,255,136,0.5);transition:0.15s;}
-.projeto a:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(0,255,136,0.8);}
-.nav{text-align:center;margin-bottom:40px;}
-.nav a{margin:0 10px;color:#9affc7;text-decoration:none;}
-.nav a:hover{text-decoration:underline;}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background: radial-gradient(circle at top, #10162a 0%, #05070f 70%);
+  color:#eaeaea;
+  font-family:"Segoe UI", Arial, sans-serif;
+}
+
+.container{
+  max-width:900px;
+  margin:0 auto;
+  padding:24px;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:32px;
+}
+
+.nav{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.nav a{
+  margin:0 10px;
+  color:#9affc7;
+  text-decoration:none;
+}
+
+.nav a:hover{
+  text-decoration:underline;
+}
+
+.projeto{
+  background:rgba(10,14,30,0.75);
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:24px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+.projeto img{
+  max-width:300px;
+  margin-bottom:16px;
+  border-radius:12px;
+  filter: drop-shadow(0 0 15px rgba(0,255,136,0.5));
+}
+
+.projeto p{
+  opacity:0.85;
+}
+
+.projeto a{
+  margin-top:12px;
+  display:inline-block;
+  padding:10px 20px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#00ff88,#00cc6a);
+  color:#032013;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 0 20px rgba(0,255,136,0.5);
+  transition:0.15s;
+}
+
+.projeto a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 30px rgba(0,255,136,0.8);
+}
+
+.projeto .secondary{
+  background:rgba(255,255,255,0.08);
+  color:#9affc7;
+  box-shadow:none;
+}
+
+.projeto .secondary:hover{
+  background:rgba(0,255,136,0.15);
+}
 </style>
 </head>
+
 <body>
 <div class="container">
 
-<div class="nav">
-  <a href="index.html">Home</a> | <a href="projects.html">Projetos</a>
-</div>
-
-<h1>Projetos</h1>
-
-<div class="projeto">
-  <img src="assets/imagens/lirons-museum.png" alt="Liron's Museum">
-  <h2>Liron's Museum</h2>
-  <p>Projeto: Dandy's world AU.</p>
-  <a href="projects/devlog/LironsMuseum.html">Ver devlog</a>
-</div>
-  <a href="https://www.tiktok.com/@lirons.museum.au">Ver tiktok</a>
-</div>
-
-  <div class="projeto">
-  <img src="assets/imagens/last-flame-of-life.png" alt="Last Flame of Life">
-  <h2>Last Flame of Life</h2>
-  <p>Projeto: Roblox game. </p>
-  <a href="projects/devlog/LFOL.html">Ver devlog</a>
+  <div class="nav">
+    <a href="index.html">Home</a> | 
+    <a href="projects.html">Projetos</a>
   </div>
 
+  <h1>Projetos</h1>
+
+  <!-- LIRON'S MUSEUM -->
   <div class="projeto">
-  <img src="assets/imagens/timerune.png" alt="Timerune">
-  <h2>Timerune</h2>
-  <p>Projeto: Deltarune fangame. </p>
-  <a href="https://BlakeWolfy.github.io/index.html">Ver devlog</a>
+    <img src="assets/imagens/lirons-museum.png" alt="Liron's Museum">
+    <h2>Liron's Museum</h2>
+    <p>Projeto: Dandy's World AU.</p>
+
+    <a href="projects/devlog/LironsMuseum.html">Ver devlog</a>
+
+    <a 
+      href="https://www.tiktok.com/@lirons.museum.au" 
+      class="secondary"
+      target="_blank"
+    >
+      Ver TikTok
+    </a>
+
+    <a 
+      href="https://blakewolfy.github.io/projects/devlog/LironsMuseum-toons.html"
+      class="secondary"
+    >
+      Ver Toons
+    </a>
   </div>
-  
+
+  <!-- LAST FLAME OF LIFE -->
+  <div class="projeto">
+    <img src="assets/imagens/last-flame-of-life.png" alt="Last Flame of Life">
+    <h2>Last Flame of Life</h2>
+    <p>Projeto: Jogo no Roblox.</p>
+
+    <a href="projects/devlog/LFOL.html">Ver devlog</a>
+  </div>
+
+  <!-- TIMERUNE -->
+  <div class="projeto">
+    <img src="assets/imagens/timerune.png" alt="Timerune">
+    <h2>Timerune</h2>
+    <p>Projeto: Fangame de Deltarune.</p>
+
+    <a href="https://BlakeWolfy.github.io/index.html">Ver devlog</a>
+  </div>
+
 </div>
 </body>
-</html>
+  </html>
