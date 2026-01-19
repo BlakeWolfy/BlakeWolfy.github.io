@@ -153,13 +153,13 @@ h1{
 </div>
 </section>
 
-<!-- F -->
+<!-- F (Leads - sem imagem) -->
 <section class="section f">
 <h2>🟪 Classe F (Leads)</h2>
 <div class="grid">
-  <div class="card"><img src="assets/imagens/lirons-museum/f/don-card.png"><p>Don</p></div>
-  <div class="card"><img src="assets/imagens/lirons-museum/f/nixxy-card.png"><p>Nixxy</p></div>
-  <div class="card"><img src="assets/imagens/lirons-museum/f/condressa-lockie-card.png"><p>Condressa Lockie</p></div>
+  <div class="card"><p>Don</p></div>
+  <div class="card"><p>Nixxy</p></div>
+  <div class="card"><p>Condressa Lockie</p></div>
 </div>
 </section>
 
@@ -191,18 +191,24 @@ h1{
 </div>
 </section>
 
-  <div style="text-align:center;margin:40px 0;">
+<div style="text-align:center;margin:40px 0;">
   <a href="https://blakewolfy.github.io/projects.html"
-     style="
-       color:#8bbcff;
-       text-decoration:none;
-       font-size:14px;
-       opacity:0.8;
-     ">
+     style="color:#8bbcff;text-decoration:none;font-size:14px;opacity:0.8;">
     ← Voltar para Projetos
   </a>
-  </div>
-  
 </div>
+
+</div>
+
+<!-- Fallback automático para imagens inexistentes -->
+<script>
+document.querySelectorAll("img").forEach(img => {
+  img.onerror = () => {
+    img.onerror = null;
+    img.src = "assets/imagens/lirons-museum/not-found-card.png";
+  };
+});
+</script>
+
 </body>
-                                                                                      </html>
+</html>
