@@ -26,10 +26,20 @@ h1{
   margin-bottom:24px;
 }
 
+/* TÍTULOS */
 h2{
-  margin-top:24px;
+  margin-top:30px;
+  text-shadow:0 0 10px rgba(255,255,255,0.25);
+}
+
+h2.survivors{
   color:#8fd9ff;
-  text-shadow:0 0 8px rgba(143,217,255,0.6);
+  text-shadow:0 0 10px rgba(143,217,255,0.7);
+}
+
+h2.monsters{
+  color:#ffb36a;
+  text-shadow:0 0 10px rgba(255,179,106,0.7);
 }
 
 p{
@@ -37,13 +47,28 @@ p{
   line-height:1.5;
 }
 
+.section-note{
+  font-size:0.95em;
+  opacity:0.85;
+  margin-bottom:12px;
+}
+
+/* IMAGENS */
 img{
   max-width:100%;
   border-radius:12px;
-  filter: drop-shadow(0 0 18px rgba(140,220,255,0.55));
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 
+.img-survivors{
+  filter: drop-shadow(0 0 20px rgba(143,217,255,0.6));
+}
+
+.img-monsters{
+  filter: drop-shadow(0 0 20px rgba(255,179,106,0.6));
+}
+
+/* NAV */
 .nav{
   text-align:center;
   margin-bottom:40px;
@@ -71,18 +96,41 @@ img{
 
   <h1>Last Flame of Life</h1>
 
-  <img src="../../assets/imagens/last-flame-of-life.png" alt="Last Flame of Life">
+  <img 
+    src="../../assets/imagens/last-flame-of-life.png" 
+    alt="Last Flame of Life"
+    class="img-survivors"
+  >
 
   <h2>Ideia</h2>
-  <p>Esse projeto é um jogo Roblox inspirado por Forsaken, Die of Death e Dead by Daylight.</p>
+  <p>
+    Esse projeto é um jogo Roblox inspirado por Forsaken, Die of Death e Dead by Daylight.
+    Os assassinos são chamados de <strong>Monstros</strong>.
+  </p>
 
-  <h2>Personagens</h2>
+  <!-- SOBREVIVENTES -->
+  <h2 class="survivors">Sobreviventes</h2>
+  <p class="section-note">
+    Personagens jogáveis focados em cooperação, estratégia e sobrevivência.
+  </p>
 
-  <img src="../../assets/imagens/LFOL_chars1.png" alt="Personagens de Last Flame of Life">
-  <img src="../../assets/imagens/LFOL_chars2.png" alt="Mais personagens de Last Flame of Life">
+  <img 
+    src="../../assets/imagens/LFOL_chars1.png" 
+    alt="Sobreviventes de Last Flame of Life"
+    class="img-survivors"
+  >
 
-  <h2>Processo</h2>
-  <p>Ainda não começou devido à outro projeto estar em modo de prioridade.</p>
+  <!-- MONSTROS -->
+  <h2 class="monsters">Monstros</h2>
+  <p class="section-note">
+    As entidades que caçam os sobreviventes.jogaveis também.
+  </p>
+
+  <img 
+    src="../../assets/imagens/LFOL_chars2.png" 
+    alt="Monstros de Last Flame of Life"
+    class="img-monsters"
+  >
 
   <h2>Status</h2>
   <p>Em desenvolvimento.</p>
