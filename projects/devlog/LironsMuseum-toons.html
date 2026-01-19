@@ -78,20 +78,30 @@ h1 {
   padding: 14px;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  min-height: 220px; /* garante espaço para a imagem e texto */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 /* Imagem dentro do card */
 .card img {
   width: 100%;
+  height: 160px; /* altura fixa */
+  min-height: 120px;
+  object-fit: contain; /* mantém proporção e não corta a imagem */
   border-radius: 12px;
   margin-bottom: 10px;
   background: #0c1230;
+  display: block;
 }
 
 /* Texto dos cards */
 .card p {
   font-size: 14px;
   opacity: 0.9;
+  text-align: center;
 }
 
 /* Cards sem imagem (Leads) centralizados */
@@ -99,7 +109,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 160px;
+  min-height: 180px;
 }
 
 /* Classes de cores */
