@@ -33,6 +33,7 @@ section{ padding:80px 0; }
   margin-bottom:40px;
 }
 
+/* ===== SUBSCRIBE ===== */
 .subscribe{
   max-width:420px;
   margin:0 auto;
@@ -71,12 +72,81 @@ section{ padding:80px 0; }
   font-size:14px;
   text-align:center;
 }
+
+/* ===== PROJECT SECTION ===== */
+.project{
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.project-card{
+  max-width:720px;
+  margin:0 auto;
+  background:rgba(8,12,24,0.7);
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
+  text-align:center;
+}
+
+.project-card img{
+  width:100%;
+  max-width:520px;
+  border-radius:16px;
+  margin-bottom:24px;
+  box-shadow:0 0 30px rgba(0,0,0,0.6);
+}
+
+.project-card h2{
+  margin-bottom:8px;
+}
+
+.project-card p{
+  opacity:0.8;
+  margin-bottom:24px;
+}
+
+.progress-container{
+  background:#0c1230;
+  border-radius:20px;
+  overflow:hidden;
+  height:18px;
+  margin-bottom:12px;
+}
+
+.progress-bar{
+  height:100%;
+  width:1%;
+  background:linear-gradient(90deg,#00ff88,#00cc6a);
+}
+
+.progress-text{
+  font-size:14px;
+  opacity:0.7;
+  margin-bottom:24px;
+}
+
+.project-card a{
+  display:inline-block;
+  padding:12px 24px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.05);
+  color:#00ff88;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.2s;
+}
+
+.project-card a:hover{
+  background:rgba(0,255,136,0.15);
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
+
+<!-- HERO -->
 <section class="hero">
   <img src="assets/imagens/wolfy-banner.png" alt="Wolfy Blake">
 
@@ -92,6 +162,28 @@ section{ padding:80px 0; }
     <div id="msg"></div>
   </div>
 </section>
+
+<!-- PROJECT -->
+<section class="project">
+  <div class="project-card">
+
+    <img src="assets/imagens/lirons-museum.png" alt="Liron's Museum">
+
+    <h2>Projeto Atual: Liron's Museum</h2>
+    <p>Experiência narrativa sombria ambientada em um museu.</p>
+
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="progress-text">Progresso: 1%</div>
+
+    <a href="https://blakewolfy.github.io/projects/devlog/LironsMuseum.html">
+      Ver devlog do projeto →
+    </a>
+
+  </div>
+</section>
+
 </div>
 
 <script>
