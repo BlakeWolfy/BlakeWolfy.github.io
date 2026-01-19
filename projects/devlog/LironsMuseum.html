@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <title>Liron's Museum | Wolfy Blake</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 *{box-sizing:border-box;}
+
 body{
   margin:0;
   min-height:100vh;
@@ -13,33 +15,52 @@ body{
   color:#ffe9d6;
   font-family:"Segoe UI", Arial, sans-serif;
 }
+
 .container{
   max-width:900px;
   margin:0 auto;
   padding:24px;
 }
+
+/* TÍTULOS */
 h1{
   text-align:center;
-  margin-bottom:24px;
+  margin-bottom:12px;
   color:#ff9a2e;
 }
 h2{
+  margin-top:32px;
+  color:#ffb866;
+  border-bottom:1px solid rgba(255,154,46,0.3);
+  padding-bottom:6px;
+}
+h3{
   margin-top:24px;
   color:#ff9a2e;
 }
-p{
-  margin-bottom:16px;
-  line-height:1.5;
+
+/* TEXTO */
+p, li{
+  line-height:1.6;
+  margin-bottom:12px;
 }
+
+ul{
+  padding-left:20px;
+}
+
+/* IMAGEM */
 img{
   max-width:100%;
-  border-radius:12px;
+  border-radius:14px;
+  margin:24px 0;
   filter: drop-shadow(0 0 18px rgba(255,154,46,0.6));
-  margin-bottom:16px;
 }
+
+/* NAV */
 .nav{
   text-align:center;
-  margin-bottom:40px;
+  margin-bottom:32px;
 }
 .nav a{
   margin:0 10px;
@@ -58,7 +79,7 @@ img{
 }
 .btn{
   padding:14px 22px;
-  border-radius:10px;
+  border-radius:12px;
   font-weight:600;
   text-decoration:none;
   color:#2a1405;
@@ -72,7 +93,6 @@ img{
 }
 .btn.secondary{
   background:#ffb866;
-  box-shadow:0 0 14px rgba(255,184,102,0.7);
 }
 .btn.disabled{
   background:#5a3a20;
@@ -85,20 +105,25 @@ img{
 /* EASTER EGG */
 .easter{
   color:#ff3333 !important;
-  text-shadow:0 0 10px rgba(255,0,0,0.8);
+  text-shadow:0 0 12px rgba(255,0,0,0.9);
   letter-spacing:2px;
 }
 </style>
 </head>
+
 <body>
 <div class="container">
 
 <div class="nav">
-  <a href="https://blakewolfy.github.io/projects.html">Voltar para Projetos</a> |
+  <a href="https://blakewolfy.github.io/projects.html">Projetos</a> |
   <a href="https://blakewolfy.github.io/index.html">Home</a>
 </div>
 
 <h1 id="title">Liron's Museum</h1>
+
+<p style="text-align:center; opacity:0.85;">
+Uma AU do mundo de <strong>Dandy</strong>
+</p>
 
 <img src="../../assets/imagens/lirons-museum.png" alt="Liron's Museum">
 
@@ -108,39 +133,98 @@ img{
   </a>
 
   <a class="btn secondary" href="https://blakewolfy.github.io/projects/devlog/LironsMuseum-toons.html">
-    Ver toons!
+    Ver Toons
   </a>
 
   <span class="btn disabled">
-    Veja Comics (Em breve…)
+    Comics (em breve)
   </span>
 </div>
 
-<h2 id="idea-title">Ideia</h2>
-<p id="idea-text">Esse projeto é uma au, onde meus ocs/personagens originais são toons.</p>
+<!-- LORE -->
+<h2 id="lore-title">Lore</h2>
+<p id="lore-text">
+O Museu de Liron é uma AU ambientada em um local afiliado a Gardenview, conhecido oficialmente como
+<strong>LIFEMUSEUM</strong>, mas chamado popularmente de <em>Museu de Liron</em>.
+</p>
 
-<h2 id="process-title">Processo</h2>
-<p id="process-text">46 Toons feitos em arte, ainda não 3d mas planos para isso.</p>
+<p>
+Após o fracasso do Show do Liron, o museu foi abandonado.  
+Os fundadores desapareceram, os Toon Handlers foram demitidos,  
+e os toons ficaram presos, isolados do mundo exterior.
+</p>
 
-<h2 id="status-title">Status</h2>
-<p id="status-text">Em desenvolvimento.</p>
+<p>
+Eles não conseguem sair.  
+Eles não conseguem pedir ajuda.  
+E o museu continua funcionando… sozinho.
+</p>
+
+<!-- CLASSES -->
+<h2>Classes</h2>
+
+<h3>Toons</h3>
+<ul>
+  <li><strong>Classe EX</strong> — Descartáveis</li>
+  <li><strong>Classe A</strong> — Comuns</li>
+  <li><strong>Classe B</strong> — Incomuns</li>
+  <li><strong>Classe C</strong> — Raros</li>
+  <li><strong>Classe D</strong> — Main Toons</li>
+  <li><strong>Classe E</strong> — Holiday Toons</li>
+  <li><strong>Classe sub-F</strong> — Sector Leads</li>
+  <li><strong>Classe F</strong> — Leads</li>
+  <li><strong>Classe sub-H</strong> — Primary Lead</li>
+</ul>
+
+<h3>Humanos</h3>
+<ul>
+  <li><strong>Classe 0</strong> — Visitantes</li>
+  <li><strong>Classe G</strong> — Toon Handlers</li>
+  <li><strong>Classe H</strong> — Fundadores</li>
+</ul>
+
+<h3>Sector Leads vs Leads</h3>
+<p>
+Sector Leads são toons das classes A–D encarregados de liderar áreas específicas do museu.  
+Já os Leads (Classe F) possuem autoridade total e controle sobre sistemas críticos.
+</p>
+
+<!-- MECÂNICAS -->
+<h2>Contexto Geral</h2>
+<ul>
+  <li>Apenas Liron e os Leads podem operar o Trem</li>
+  <li>Toons abaixo da Classe F são bloqueados</li>
+  <li>O trem circula apenas entre o Lobby e escritórios dos Leads</li>
+  <li>Tentativas de fuga já ocorreram — nenhuma teve sucesso</li>
+</ul>
+
+<!-- LOBBY -->
+<h2>Lobby</h2>
+<ul>
+  <li>Área inicial do jogo</li>
+  <li>5 elevadores de madeira para o subsolo</li>
+  <li>Estação de trem</li>
+  <li>Lojas usam a moeda <strong>Shards</strong></li>
+</ul>
+
+<!-- STATUS -->
+<h2 id="status-title">Status do Projeto</h2>
+<p id="status-text">
+Projeto em desenvolvimento ativo, com foco em narrativa ambiental,
+eventos sazonais e progressão profunda.
+</p>
 
 </div>
 
 <script>
 setTimeout(() => {
-  const targets = [
-    document.getElementById("title"),
-    document.getElementById("idea-text"),
-    document.getElementById("process-text"),
-    document.getElementById("status-text")
-  ];
+  const targets = document.querySelectorAll(
+    "#title, #lore-text, #status-text"
+  );
 
   targets.forEach(el => {
-    if(el){
-      el.textContent = "I SEE YOU";
-      el.classList.add("easter");
-    }
+    el.textContent = "I SEE YOU";
+    el.classList.add("easter");
   });
 }, 600000); // 10 minutos
 </script>
