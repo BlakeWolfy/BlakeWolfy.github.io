@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Cutscene Pixel</title>
+<title>Cutscene Pixel Fangame</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -32,10 +32,10 @@ html, body {
   line-height: 1.4;
   background: black;
   border-radius: 0;
-  white-space: pre-wrap;   /* permite quebras de linha */
-  word-break: break-word;  /* força quebra de palavras longas */
+  white-space: pre-wrap;
+  word-break: break-word;
   overflow-wrap: break-word;
-  overflow: hidden;        /* garante que nada vaze */
+  overflow: hidden;
 }
 
 /* Texto A */
@@ -92,11 +92,16 @@ html, body {
 </head>
 <body>
 
+<!-- Caixa de diálogo -->
 <div id="dialog">
   <span id="text"></span>
 </div>
 
+<!-- Indicador de próximo -->
 <div id="next">▶</div>
+
+<!-- Música -->
+<audio id="bgm" src="assets/musics/a_lost_person.m4a" loop></audio>
 
 <script>
 const dialogos = [
@@ -121,7 +126,9 @@ let typing = false;
 
 const textEl = document.getElementById("text");
 const nextEl = document.getElementById("next");
+const bgm = document.getElementById("bgm");
 
+// Função para escrever o texto letra por letra
 function escrever() {
   typing = true;
   nextEl.style.opacity = 0;
@@ -142,21 +149,36 @@ function escrever() {
   }, 32);
 }
 
+// Função para avançar o diálogo
 function avancar() {
   if (typing) return;
   index++;
   if (index < dialogos.length) {
     escrever();
   } else {
+    // Redireciona ao final
     window.location.href = "https://blakewolfy.github.io/projects/devlog/timerune.htmll";
   }
 }
 
-document.addEventListener("click", avancar);
-document.addEventListener("keydown", e => {
-  if (e.key === "Enter" || e.key === " ") avancar();
+// Começa a tocar música na primeira interação e garante loop
+function iniciaMusica() {
+  bgm.volume = 0.5;
+  bgm.play();
+  document.removeEventListener("click", iniciaMusica);
+}
+
+// Garante que o loop funcione mesmo se algum navegador interromper o áudio
+bgm.addEventListener('ended', () => {
+  bgm.currentTime = 0;
+  bgm.play();
 });
 
+// Eventos
+document.addEventListener("click", () => { avancar(); iniciaMusica(); });
+document.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " ") { avancar(); iniciaMusica(); } });
+
+// Inicia o primeiro diálogo
 escrever();
 </script>
 
