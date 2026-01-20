@@ -13,7 +13,6 @@ html, body {
   height: 100%;
   background: black;
   font-family: "Press Start 2P", "Courier New", monospace;
-  image-rendering: pixelated; /* torna o texto e imagens mais pixelados */
   overflow: hidden;
 }
 
@@ -32,24 +31,25 @@ html, body {
   font-size: 22px;
   line-height: 1.4;
   background: black;
-  /* Retangular sem cantos arredondados */
   border-radius: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 /* Texto A */
 .text-a {
   color: #7fd7ff; /* azul claro */
   font-family: "Press Start 2P", monospace;
-  image-rendering: pixelated;
+  display: inline-block;
 }
 
 /* Texto B (gradiente) */
 .text-b {
+  font-family: "Press Start 2P", monospace;
+  display: inline-block;
   background: linear-gradient(90deg, #ff9f43, #6dff8f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: "Press Start 2P", monospace;
-  image-rendering: pixelated;
 }
 
 /* Indicador de próximo */
@@ -143,167 +143,7 @@ function avancar() {
   if (index < dialogos.length) {
     escrever();
   } else {
-    // Fim do diálogo → redireciona
-    window.location.href = "https://blakewolfy.github.io/projects/devlog/timerune.htmll";
-  }
-}
-
-document.addEventListener("click", avancar);
-document.addEventListener("keydown", e => {
-  if (e.key === "Enter" || e.key === " ") avancar();
-});
-
-// Inicia o primeiro diálogo
-escrever();
-</script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<title>Cutscene Pixel</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  font-family: "Press Start 2P", "Courier New", monospace;
-  image-rendering: pixelated; /* torna o texto e imagens mais pixelados */
-  overflow: hidden;
-}
-
-/* Caixa de diálogo retangular */
-#dialog {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 900px;
-  height: 180px;
-  border: 4px solid white;
-  padding: 20px;
-  box-sizing: border-box;
-  font-size: 22px;
-  line-height: 1.4;
-  background: black;
-  /* Retangular sem cantos arredondados */
-  border-radius: 0;
-}
-
-/* Texto A */
-.text-a {
-  color: #7fd7ff; /* azul claro */
-  font-family: "Press Start 2P", monospace;
-  image-rendering: pixelated;
-}
-
-/* Texto B (gradiente) */
-.text-b {
-  background: linear-gradient(90deg, #ff9f43, #6dff8f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: "Press Start 2P", monospace;
-  image-rendering: pixelated;
-}
-
-/* Indicador de próximo */
-#next {
-  position: absolute;
-  bottom: 20px;
-  right: 60px;
-  color: white;
-  font-size: 18px;
-  opacity: 0;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%, 50% { opacity: 0; }
-  51%, 100% { opacity: 1; }
-}
-
-@media (max-width: 480px) {
-  #dialog {
-    font-size: 16px;
-    height: 160px;
-    padding: 15px;
-  }
-  #next {
-    font-size: 14px;
-    right: 40px;
-  }
-}
-</style>
-
-<!-- Fonte pixelada do Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-</head>
-<body>
-
-<div id="dialog">
-  <span id="text"></span>
-</div>
-
-<div id="next">▶</div>
-
-<script>
-const dialogos = [
-  { speaker: "A", text: "Ei! Oque você tá fazendo sentada aí?" },
-  { speaker: "B", text: "Ah-! Irmã? É você! Achei que era a mamãe..." },
-  { speaker: "A", text: "Meh. Ela tá trabalhando." },
-  { speaker: "B", text: "De noite?" },
-  { speaker: "A", text: "É. Ela ficou presa com papelada." },
-  { speaker: "B", text: "Ah... de qualquer jeito, eu tava olhando pras estrelas cadentes!" },
-  { speaker: "A", text: "Oooh! Você já fez um pedido?" },
-  { speaker: "B", text: "hehe! Sim!" },
-  { speaker: "A", text: "Qual foi? É segredo ou sua irmãzona aqui pode saber?" },
-  { speaker: "B", text: "hehe... bem não ri ok?... eu fiz um pedido... para a gente sempre estar juntas e  felizes!" },
-  { speaker: "A", text: "Hahah-" },
-  { speaker: "B", text: "Ei- você falou que não ia rir!" },
-  { speaker: "A", text: "Não é isso. É que essse também é o meu pedido." }
-];
-
-let index = 0;
-let char = 0;
-let typing = false;
-
-const textEl = document.getElementById("text");
-const nextEl = document.getElementById("next");
-
-function escrever() {
-  typing = true;
-  nextEl.style.opacity = 0;
-  textEl.textContent = "";
-  char = 0;
-
-  const atual = dialogos[index];
-  textEl.className = atual.speaker === "A" ? "text-a" : "text-b";
-
-  const intervalo = setInterval(() => {
-    textEl.textContent += atual.text.charAt(char);
-    char++;
-    if (char >= atual.text.length) {
-      clearInterval(intervalo);
-      typing = false;
-      nextEl.style.opacity = 1;
-    }
-  }, 32);
-}
-
-function avancar() {
-  if (typing) return;
-  index++;
-  if (index < dialogos.length) {
-    escrever();
-  } else {
-    // Fim do diálogo → redireciona
+    // Redirecionamento automático ao terminar o diálogo
     window.location.href = "https://blakewolfy.github.io/projects/devlog/timerune.html";
   }
 }
