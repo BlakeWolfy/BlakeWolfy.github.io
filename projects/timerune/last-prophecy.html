@@ -50,7 +50,7 @@ html, body {
 const vik = document.getElementById("vik");
 const bgm = document.getElementById("bgm");
 
-// Inicia música no primeiro clique ou toque
+// Inicia música no primeiro clique/toque
 document.addEventListener("click", () => {
   if(bgm.paused){
     bgm.volume = 0.5;
@@ -58,33 +58,39 @@ document.addEventListener("click", () => {
   }
 });
 
-// Alterna sprites de caminhada
-let walkToggle = true;
+// Sprites de caminhada (4 frames)
+const walkFrames = [
+  "../../assets/imagens/timerune/dw-vikwalk1.png",
+  "../../assets/imagens/timerune/dw-vikwalk2.png",
+  "../../assets/imagens/timerune/dw-vikwalk3.png",
+  "../../assets/imagens/timerune/dw-vikwalk4.png"
+];
+
+let frameIndex = 0;
 setInterval(()=>{
-  vik.src = walkToggle ? "../../assets/imagens/timerune/dw-vikwalk1.png"
-                       : "../../assets/imagens/timerune/dw-vikwalk2.png";
-  walkToggle = !walkToggle;
-}, 300);
+  vik.src = walkFrames[frameIndex];
+  frameIndex = (frameIndex + 1) % walkFrames.length;
+}, 200); // muda frame a cada 200ms (ajustável)
 
 // Animação horizontal contínua
-let pos = -200; // fora da tela esquerda
+let pos = -200; // fora da tela à esquerda
 let vw = window.innerWidth;
 
 function moveVik(){
-  pos += 2; // velocidade em pixels (ajuste se quiser mais rápido/lento)
+  pos += 2; // velocidade horizontal
   if(pos > vw){
-    pos = -200; // volta para a esquerda
+    pos = -200; // volta à esquerda
   }
   vik.style.left = pos + "px";
   requestAnimationFrame(moveVik);
 }
 moveVik();
 
-// Atualiza largura da tela ao redimensionar
+// Ajusta largura da tela ao redimensionar
 window.addEventListener("resize", ()=>{
   vw = window.innerWidth;
 });
 </script>
 
 </body>
-  </html>
+</html>
