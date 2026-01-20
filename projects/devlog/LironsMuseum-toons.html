@@ -6,29 +6,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root {
-  --color-ex: #ffffff;
-  --color-a: #ff4444;
-  --color-b: #ff9933;
-  --color-c: #ffdd55;
-  --color-d: #55ff88;
-  --color-e: #55aaff;
-  --color-f: #bb66ff;
-  --color-subf: #dddddd;
-  --color-primary: #ffaa00;
-  --color-none: #66ccff;
-
-  --orange-glow: rgba(255,170,0,0.45);
+:root{
+  --primary:#ffaa00;
+  --a:#ff4444;
+  --b:#ff9933;
+  --c:#ffdd55;
+  --d:#55ff88;
+  --e:#55aaff;
+  --f:#bb66ff;
 }
 
-/* Reset */
 *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
   min-height:100vh;
-  background: radial-gradient(circle at top,#2a1405 0%,#0f0705 70%);
-  color:#ffe9d6;
-  font-family:"Segoe UI", Arial, sans-serif;
+  background:radial-gradient(circle at top,#10162a 0%,#05070f 70%);
+  color:#eaeaea;
+  font-family:"Segoe UI",Arial,sans-serif;
 }
 
 .container{
@@ -37,127 +31,81 @@ body{
   padding:40px 24px;
 }
 
-h1{
-  text-align:center;
-  margin-bottom:12px;
-  color:#ffb347;
-  text-shadow:0 0 20px var(--orange-glow);
-}
+h1{text-align:center;margin-bottom:12px;}
+.subtitle{text-align:center;opacity:.7;margin-bottom:50px;}
 
-.subtitle{
-  text-align:center;
-  opacity:.75;
-  margin-bottom:50px;
-}
-
-/* Seções */
-.section{
-  margin-bottom:64px;
-}
-
+.section{margin-bottom:64px;}
 .section h2{
   margin-bottom:20px;
-  padding-left:12px;
   border-left:4px solid;
-  cursor:pointer;
-  user-select:none;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.section h2::after{
-  content:"▼";
-  font-size:14px;
-  opacity:.7;
-  transition:transform .25s ease;
-}
-
-.section.collapsed h2::after{
-  transform:rotate(-90deg);
+  padding-left:12px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
   gap:20px;
-  overflow:hidden;
-  transition:max-height .4s ease, opacity .3s ease;
 }
 
-.section.collapsed .grid{
-  max-height:0;
-  opacity:0;
-  pointer-events:none;
-}
-
-.section:not(.collapsed) .grid{
-  max-height:5000px;
-  opacity:1;
-}
-
-/* Cards */
 .card{
-  background:rgba(20,10,5,0.75);
+  background:rgba(10,14,30,.75);
   border-radius:16px;
   padding:14px;
   text-align:center;
-  box-shadow:0 0 18px rgba(255,170,0,0.15);
-  min-height:220px;
+  box-shadow:0 10px 25px rgba(0,0,0,.6);
+  min-height:120px;
   display:flex;
-  flex-direction:column;
   align-items:center;
-}
-
-.card img{
-  width:100%;
-  height:160px;
-  object-fit:contain;
-  border-radius:12px;
-  margin-bottom:10px;
-  background:#1a0c05;
-}
-
-.card p{
-  font-size:14px;
-  opacity:.95;
-}
-
-.card.no-img{
   justify-content:center;
-  min-height:180px;
 }
 
-/* Cores das classes */
-.ex h2{border-color:var(--color-ex);}
-.a h2{border-color:var(--color-a);}
-.b h2{border-color:var(--color-b);}
-.c h2{border-color:var(--color-c);}
-.d h2{border-color:var(--color-d);}
-.e h2{border-color:var(--color-e);}
-.f h2{border-color:var(--color-f);}
-.subf h2{border-color:var(--color-subf);}
-.primary h2{border-color:var(--color-primary);}
-.none h2{border-color:var(--color-none);}
+.card p{font-size:14px;opacity:.9;}
 
-/* Voltar */
-.back-link{
-  text-align:center;
-  margin:40px 0;
-}
-.back-link a{
-  color:#ffb347;
-  text-decoration:none;
-  opacity:.8;
+/* cores das classes */
+.primary h2{border-color:var(--primary);}
+.a h2{border-color:var(--a);}
+.b h2{border-color:var(--b);}
+.c h2{border-color:var(--c);}
+.d h2{border-color:var(--d);}
+.e h2{border-color:var(--e);}
+.f h2{border-color:var(--f);}
+
+/* ---------- TABS ---------- */
+.tabs{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
 }
 
-/* Mobile */
-@media(max-width:400px){
-  .grid{
-    grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
-    gap:12px;
-  }
+.tab-btn{
+  background:#0c1230;
+  border:1px solid rgba(255,255,255,.15);
+  color:#eaeaea;
+  padding:8px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:14px;
+  opacity:.7;
 }
+
+.tab-btn.active{
+  background:#163b5f;
+  border-color:var(--e);
+  opacity:1;
+}
+
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+.subgroup-title{
+  margin:18px 0 10px;
+  font-size:13px;
+  opacity:.75;
+}
+
+.back-link{text-align:center;margin:40px 0;}
+.back-link a{color:#8bbcff;text-decoration:none;font-size:14px;opacity:.8;}
 </style>
 </head>
 
@@ -167,60 +115,128 @@ h1{
 <h1>Liron's Museum — Toons</h1>
 <p class="subtitle">Catálogo de personagens e classificações</p>
 
-<!-- A -->
+<!-- CLASSE PRIMARY -->
+<section class="section primary">
+<h2>🔶️ Primary</h2>
+<div class="grid">
+  <div class="card"><p>Liron Firebloom</p></div>
+</div>
+</section>
+
+<!-- CLASSE A -->
 <section class="section a">
 <h2>🟥 Classe A</h2>
 <div class="grid">
-  <div class="card"><img src="/assets/imagens/lirons-museum/a/spike-striker-card.png"><p>Spike Striker</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/a/straps-anxat-card.png"><p>Straps Anxat</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/a/puffin-cloudtail-card.png"><p>Puffin Cloudtail</p></div>
+  <div class="card"><p>Spike Striker</p></div>
+  <div class="card"><p>Straps Anxat</p></div>
+  <div class="card"><p>Puffin Cloudtail</p></div>
 </div>
 </section>
 
-<!-- B -->
+<!-- CLASSE B -->
 <section class="section b">
 <h2>🟧 Classe B</h2>
 <div class="grid">
-  <div class="card"><img src="/assets/imagens/lirons-museum/b/cardog-cardboard-card.png"><p>Cardog Cardboard</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/b/violet-lizzy-card.png"><p>Violet & Lizzy</p></div>
-  <div class="card"><img src="/assets/imagens/lirons-museum/b/garrett-watertraveller-card.png"><p>Garrett Watertraveller</p></div>
+  <div class="card"><p>Cardog Cardboard</p></div>
+  <div class="card"><p>Violet & Lizzy</p></div>
+  <div class="card"><p>Garrett Watertraveller</p></div>
+  <div class="card"><p>Matt Masquerade</p></div>
+  <div class="card"><p>Willy Partey</p></div>
+  <div class="card"><p>Lily Foldery</p></div>
+  <div class="card"><p>Lurian Nautrelis</p></div>
+  <div class="card"><p>Luki Crocogator</p></div>
 </div>
 </section>
 
-<!-- C -->
+<!-- CLASSE C -->
 <section class="section c">
 <h2>🟨 Classe C</h2>
 <div class="grid">
-  <div class="card"><img src="/assets/imagens/lirons-museum/c/dylan-summery-card.png"><p>Dylan Summery</p></div>
+  <div class="card"><p>Dylan Summery</p></div>
+  <div class="card"><p>Lunaris Aurelyn</p></div>
+  <div class="card"><p>Mike Hardshell</p></div>
+  <div class="card"><p>Maris SeaStar</p></div>
+  <div class="card"><p>Milly Verdant</p></div>
+  <div class="card"><p>Creamy SweetMilk</p></div>
+  <div class="card"><p>Sarah Brooks</p></div>
+  <div class="card"><p>Jesse DeepEcho</p></div>
+  <div class="card"><p>Vexel Sharduntis</p></div>
 </div>
 </section>
 
-<!-- D -->
+<!-- CLASSE D -->
 <section class="section d">
 <h2>🟩 Classe D</h2>
 <div class="grid">
-  <div class="card">
-    <img src="/assets/imagens/lirons-museum/d/blyenn-bluefield-card.png">
-    <p id="bluy-name" style="cursor:pointer;">Blyenn Bluefield (Bluy)</p>
-  </div>
+  <div class="card"><p>Blyenn Bluefield (Bluy)</p></div>
+  <div class="card"><p>Hazel Icedcream</p></div>
+  <div class="card"><p>Shiro</p></div>
+  <div class="card"><p>Solaris Novartis</p></div>
+  <div class="card"><p>V1rus / N3x0r</p></div>
+  <div class="card"><p>Rose Sanghwaje</p></div>
 </div>
 </section>
 
-<!-- F -->
+<!-- CLASSE E -->
+<section class="section e">
+<h2>🟦 Classe E — Subgrupos</h2>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="hall">🎃 Halloween</button>
+  <button class="tab-btn" data-tab="nat">❄️ Natal</button>
+  <button class="tab-btn" data-tab="pas">🥚 Páscoa</button>
+</div>
+
+<div class="tab-content active" id="hall">
+  <p class="subgroup-title">E — Sub A (Comum)</p>
+  <div class="grid"><div class="card"><p>Batly DeepEcho</p></div></div>
+
+  <p class="subgroup-title">E — Sub B (Incomum)</p>
+  <div class="grid"><div class="card"><p>Billy Gourdyard (Bella Gravey)</p></div></div>
+
+  <p class="subgroup-title">E — Sub C (Raro)</p>
+  <div class="grid"><div class="card"><p>Harley 厄运</p></div></div>
+
+  <p class="subgroup-title">E — Sub D (Main)</p>
+  <div class="grid"><div class="card"><p>Candy SugarTooth</p></div></div>
+</div>
+
+<div class="tab-content" id="nat">
+  <p class="subgroup-title">E — Sub A (Comum)</p>
+  <div class="grid"><div class="card"><p>Henry Gifty</p></div></div>
+
+  <p class="subgroup-title">E — Sub B (Incomum)</p>
+  <div class="grid"><div class="card"><p>Frostey Snowy</p></div></div>
+
+  <p class="subgroup-title">E — Sub C (Raro)</p>
+  <div class="grid"><div class="card"><p>Cappy WinterWhisper</p></div></div>
+
+  <p class="subgroup-title">E — Sub D (Main)</p>
+  <div class="grid"><div class="card"><p>Fiona Starling</p></div></div>
+</div>
+
+<div class="tab-content" id="pas">
+  <p class="subgroup-title">E — Sub A (Comum)</p>
+  <div class="grid"><div class="card"><p>Eggsley Vanilloa</p></div></div>
+
+  <p class="subgroup-title">E — Sub B (Incomum)</p>
+  <div class="grid"><div class="card"><p>Carrol Farmey</p></div></div>
+
+  <p class="subgroup-title">E — Sub C (Raro)</p>
+  <div class="grid"><div class="card"><p>Basley Egginton</p></div></div>
+
+  <p class="subgroup-title">E — Sub D (Main)</p>
+  <div class="grid"><div class="card"><p>Choccy Vanilloa</p></div></div>
+</div>
+</section>
+
+<!-- CLASSE F -->
 <section class="section f">
 <h2>🟪 Classe F (Leads)</h2>
 <div class="grid">
-  <div class="card no-img"><p>Don</p></div>
-  <div class="card no-img"><p>Nixxy</p></div>
-  <div class="card no-img"><p>Condressa Lockie</p></div>
-</div>
-</section>
-
-<!-- PRIMARY -->
-<section class="section primary">
-<h2>🔶 Primary</h2>
-<div class="grid">
-  <div class="card"><img src="/assets/imagens/lirons-museum/primary/liron-firebloom-card.png"><p>Liron Firebloom</p></div>
+  <div class="card"><p>Don</p></div>
+  <div class="card"><p>Nixxy</p></div>
+  <div class="card"><p>Condressa Lockie</p></div>
 </div>
 </section>
 
@@ -231,23 +247,13 @@ h1{
 </div>
 
 <script>
-// Fallback de imagem
-document.querySelectorAll("img").forEach(img=>{
-  img.onerror=()=>{
-    img.src="/assets/imagens/lirons-museum/not-found-card.png";
-  };
-});
-
-// Toggle das classes
-document.querySelectorAll(".section h2").forEach(title=>{
-  title.addEventListener("click",()=>{
-    title.parentElement.classList.toggle("collapsed");
-  });
-});
-
-// Easter egg Bluy
-document.getElementById("bluy-name")?.addEventListener("click",()=>{
-  window.location.href="https://blakewolfy.github.io/LM-bluy.html";
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(c=>c.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.tab).classList.add("active");
+  }
 });
 </script>
 
