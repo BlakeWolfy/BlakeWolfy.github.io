@@ -164,19 +164,18 @@ function avancar() {
 // Começa a tocar música na primeira interação e garante loop
 function iniciaMusica() {
   bgm.volume = 0.5;
-  bgm.play();
+  bgm.play().catch(() => {
+    // Se o navegador bloquear, aguarda interação
+    console.log("Clique para iniciar a música.");
+  });
   document.removeEventListener("click", iniciaMusica);
 }
 
-// Garante que o loop funcione mesmo se algum navegador interromper o áudio
-bgm.addEventListener('ended', () => {
-  bgm.currentTime = 0;
-  bgm.play();
-});
-
-// Eventos
-document.addEventListener("click", () => { avancar(); iniciaMusica(); });
-document.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " ") { avancar(); iniciaMusica(); } });
+// Começa música na **primeira interação**
+document.addEventListener("click", iniciaMusica, { once: true });
+document.addEventListener("keydown", e => {
+  if(e.key === "Enter" || e.key === " ") iniciaMusica();
+}, { once: true });
 
 // Inicia o primeiro diálogo
 escrever();
