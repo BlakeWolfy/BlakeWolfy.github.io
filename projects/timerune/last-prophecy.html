@@ -20,16 +20,16 @@ html, body {
 
 #panel {
   width: 512px;
-  height: 318px;
-  object-fit: contain;
-  margin-top: 20px;
+  max-width: 90%;
+  height: auto;
+  margin-top: 10vh; /* 10% da altura da tela */
   z-index: 1;
 }
 
 #vik {
   position: absolute;
-  bottom: 180px; /* ajusta para ficar logo abaixo do painel */
-  width: 100px; /* metade do tamanho anterior */
+  bottom: calc(100vh - (10vh + 318px) - 50px); /* ajusta automaticamente */
+  width: 100px; /* metade do tamanho original */
   height: auto;
   z-index: 2;
 }
