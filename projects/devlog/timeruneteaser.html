@@ -161,21 +161,27 @@ function avancar() {
   }
 }
 
-// Começa a tocar música na primeira interação e garante loop
+// Função para iniciar a música na primeira interação
 function iniciaMusica() {
-  bgm.volume = 0.5;
-  bgm.play().catch(() => {
-    // Se o navegador bloquear, aguarda interação
-    console.log("Clique para iniciar a música.");
-  });
-  document.removeEventListener("click", iniciaMusica);
+  if (bgm.paused) {
+    bgm.volume = 0.5;
+    bgm.play().catch(() => console.log("Clique para iniciar a música."));
+  }
 }
 
-// Começa música na **primeira interação**
+// Garante que o loop funcione mesmo se algum navegador interromper o áudio
+bgm.addEventListener('ended', () => {
+  bgm.currentTime = 0;
+  bgm.play();
+});
+
+// Listener único para começar música na primeira interação
 document.addEventListener("click", iniciaMusica, { once: true });
-document.addEventListener("keydown", e => {
-  if(e.key === "Enter" || e.key === " ") iniciaMusica();
-}, { once: true });
+document.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " ") iniciaMusica(); }, { once: true });
+
+// Avança diálogo com clique ou Enter/Espaço
+document.addEventListener("click", avancar);
+document.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " ") avancar(); });
 
 // Inicia o primeiro diálogo
 escrever();
