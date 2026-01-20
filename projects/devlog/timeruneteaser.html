@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>i Miss you...</title>
+<title>I Miss you sister...</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -14,14 +14,22 @@ html, body {
   background: black;
   font-family: "Press Start 2P", monospace;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Imagem acima da caixa de diálogo */
+#panel {
+  max-width: 90%;
+  width: 600px;
+  margin-bottom: 20px;
+  display: block;
 }
 
 /* Caixa de diálogo retangular */
 #dialog {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 90%;
   max-width: 900px;
   min-height: 180px;
@@ -36,6 +44,7 @@ html, body {
   word-break: break-word;
   overflow-wrap: break-word;
   overflow: hidden;
+  position: relative;
 }
 
 /* Texto A */
@@ -61,8 +70,8 @@ html, body {
 /* Indicador de próximo */
 #next {
   position: absolute;
-  bottom: 20px;
-  right: 60px;
+  bottom: 10px;
+  right: 20px;
   color: white;
   font-size: 18px;
   opacity: 0;
@@ -82,23 +91,26 @@ html, body {
   }
   #next {
     font-size: 14px;
-    right: 40px;
+    right: 15px;
+  }
+  #panel {
+    width: 90%;
   }
 }
 </style>
 
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
 </head>
 <body>
+
+<!-- Imagem acima da caixa -->
+<img id="panel" src="assets/imagens/prophecy-panel.png" alt="Painel de Profecia">
 
 <!-- Caixa de diálogo -->
 <div id="dialog">
   <span id="text"></span>
+  <div id="next">▶</div>
 </div>
-
-<!-- Indicador de próximo -->
-<div id="next">▶</div>
 
 <!-- Música -->
 <audio id="bgm" src="assets/musics/a_lost_person.m4a" loop></audio>
@@ -152,32 +164,20 @@ function escrever() {
 // Função para avançar o diálogo
 function avancar() {
   if (typing) return;
-  index++;
-  if (index < dialogos.length) {
-    escrever();
-  } else {
-    // Redireciona ao final
-    window.location.href = "https://blakewolfy.github.io/projects/devlog/timerune.html";
-  }
-}
 
-// Função para iniciar a música na primeira interação
-function iniciaMusica() {
+  // Inicia música na primeira interação
   if (bgm.paused) {
     bgm.volume = 0.5;
     bgm.play().catch(() => console.log("Clique para iniciar a música."));
   }
+
+  index++;
+  if (index < dialogos.length) {
+    escrever();
+  } else {
+    window.location.href = "https://blakewolfy.github.io/projects/devlog/timerune.html";
+  }
 }
-
-// Garante que o loop funcione mesmo se algum navegador interromper o áudio
-bgm.addEventListener('ended', () => {
-  bgm.currentTime = 0;
-  bgm.play();
-});
-
-// Listener único para começar música na primeira interação
-document.addEventListener("click", iniciaMusica, { once: true });
-document.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " ") iniciaMusica(); }, { once: true });
 
 // Avança diálogo com clique ou Enter/Espaço
 document.addEventListener("click", avancar);
