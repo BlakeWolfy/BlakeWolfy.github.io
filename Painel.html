@@ -10,8 +10,8 @@
 <style>
 body {
   margin: 0;
-  height: 100vh;
-  background: #000;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #111 0%, #000 70%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,102 +24,132 @@ body {
 }
 
 h1 {
-  margin-bottom: 25px;
-  font-size: 18px;
+  margin-bottom: 18px;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .display {
-  width: 220px;
-  margin: 0 auto 20px;
-  padding: 12px;
-  background: black;
+  width: 260px;
+  margin: 0 auto 25px;
+  padding: 14px 10px;
+  background: linear-gradient(180deg, #111, #000);
   border: 2px solid white;
-  font-size: 20px;
-  letter-spacing: 10px;
-  min-height: 30px;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 48px;
+  white-space: pre-wrap;
 }
 
 .keypad {
   display: grid;
-  grid-template-columns: repeat(3, 70px);
-  gap: 12px;
+  grid-template-columns: repeat(3, 72px);
+  gap: 14px;
   justify-content: center;
 }
 
 button {
-  width: 70px;
-  height: 70px;
+  width: 72px;
+  height: 72px;
   font-family: inherit;
-  font-size: 20px;
-  background: white;
+  font-size: 18px;
+  background: linear-gradient(180deg, #fff, #ddd);
   color: black;
   border: none;
   cursor: pointer;
 }
 
 button:active {
-  background: #aaa;
+  background: linear-gradient(180deg, #bbb, #999);
+}
+
+.zero {
+  grid-column: 2;
 }
 
 .clear {
   grid-column: span 3;
-  background: #ff4444;
+  height: 60px;
+  background: linear-gradient(180deg, #ff5a5a, #cc0000);
   color: white;
+  font-size: 14px;
 }
 </style>
 </head>
 
 <body>
-  <div class="panel">
-    <h1>ENTER CODE</h1>
-    <div class="display" id="display"></div>
+<div class="panel">
+  <h1>ENTER CODE</h1>
 
-    <div class="keypad">
-      <button onclick="press(7)">7</button>
-      <button onclick="press(8)">8</button>
-      <button onclick="press(9)">9</button>
+  <div class="display" id="display"></div>
 
-      <button onclick="press(4)">4</button>
-      <button onclick="press(5)">5</button>
-      <button onclick="press(6)">6</button>
+  <div class="keypad" id="keypad">
+    <button onclick="press(7)">7</button>
+    <button onclick="press(8)">8</button>
+    <button onclick="press(9)">9</button>
 
-      <button onclick="press(1)">1</button>
-      <button onclick="press(2)">2</button>
-      <button onclick="press(3)">3</button>
+    <button onclick="press(4)">4</button>
+    <button onclick="press(5)">5</button>
+    <button onclick="press(6)">6</button>
 
-      <button class="clear" onclick="clearCode()">CLEAR</button>
-    </div>
+    <button onclick="press(1)">1</button>
+    <button onclick="press(2)">2</button>
+    <button onclick="press(3)">3</button>
+
+    <button class="zero" onclick="press(0)">0</button>
+    <button class="clear" onclick="clearCode()">CLEAR</button>
   </div>
+</div>
 
 <script>
 let code = "";
+let locked = false;
 
-// mapa código -> página
+// mapa de códigos
 const codeMap = {
-  "1225": "https://blakewolfy.github.io/projects/devlog/timeruneteaser.html"
+  "1225": {
+    url: "https://blakewolfy.github.io/projects/devlog/timeruneteaser.html",
+    string: "String_lost_timerune"
+  }
 };
 
 function press(num) {
+  if (locked) return;
   if (code.length >= 4) return;
 
   code += num;
-  updateDisplay();
+  updateDisplay(code);
 
   if (code.length === 4) {
-    if (codeMap[code]) {
-      window.location.href = codeMap[code];
-    }
+    checkCode();
+  }
+}
+
+function checkCode() {
+  if (codeMap[code]) {
+    locked = true;
+    document.getElementById("keypad").style.opacity = "0.4";
+
+    updateDisplay(
+      "String_found_\n" +
+      codeMap[code].string
+    );
+
+    setTimeout(() => {
+      window.location.href = codeMap[code].url;
+    }, 2500);
   }
 }
 
 function clearCode() {
+  if (locked) return;
   code = "";
-  updateDisplay();
+  updateDisplay("");
 }
 
-function updateDisplay() {
-  document.getElementById("display").textContent = code;
+function updateDisplay(text) {
+  document.getElementById("display").textContent = text;
 }
 </script>
 </body>
-  </html>
+</html>
