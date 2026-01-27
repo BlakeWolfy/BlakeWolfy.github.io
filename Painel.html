@@ -19,9 +19,7 @@ body {
   color: white;
 }
 
-.panel {
-  text-align: center;
-}
+.panel { text-align: center; }
 
 h1 {
   margin-bottom: 18px;
@@ -63,9 +61,7 @@ button:active {
   background: linear-gradient(180deg, #bbb, #999);
 }
 
-.zero {
-  grid-column: 2;
-}
+.zero { grid-column: 2; }
 
 .clear {
   grid-column: span 3;
@@ -104,15 +100,26 @@ button:active {
 <script>
 let code = "";
 let locked = false;
+let redirectTimeout = null;
 
 // mapa de códigos
 const codeMap = {
   "1225": {
     url: "https://blakewolfy.github.io/projects/devlog/timeruneteaser.html",
-    string: "String_lost_timerune"
+    message: "String_lost_timerune"
+  },
+
+  "????": {
+    url: "link-do-lirons-museum.html",
+    message: "String_found_Lifemuseum"
+  },
+
+  "????": {
+    url: "link-da-last-flame.html",
+    message: "String_burnt_status-off"
   }
 };
-
+  
 function press(num) {
   if (locked) return;
   if (code.length >= 4) return;
@@ -120,9 +127,7 @@ function press(num) {
   code += num;
   updateDisplay(code);
 
-  if (code.length === 4) {
-    checkCode();
-  }
+  if (code.length === 4) checkCode();
 }
 
 function checkCode() {
@@ -130,20 +135,24 @@ function checkCode() {
     locked = true;
     document.getElementById("keypad").style.opacity = "0.4";
 
-    updateDisplay(
-      "String_found_\n" +
-      codeMap[code].string
-    );
+    updateDisplay(codeMap[code].message);
 
-    setTimeout(() => {
+    redirectTimeout = setTimeout(() => {
       window.location.href = codeMap[code].url;
     }, 2500);
   }
 }
 
 function clearCode() {
-  if (locked) return;
+  // cancela redirect se existir
+  if (redirectTimeout) {
+    clearTimeout(redirectTimeout);
+    redirectTimeout = null;
+  }
+
   code = "";
+  locked = false;
+  document.getElementById("keypad").style.opacity = "1";
   updateDisplay("");
 }
 
