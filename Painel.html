@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Enter Code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Press Start 2P', monospace;
+  color: white;
+}
+
+.panel {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 18px;
+}
+
+.display {
+  width: 220px;
+  margin: 0 auto 20px;
+  padding: 12px;
+  background: black;
+  border: 2px solid white;
+  font-size: 20px;
+  letter-spacing: 10px;
+  min-height: 30px;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  gap: 12px;
+  justify-content: center;
+}
+
+button {
+  width: 70px;
+  height: 70px;
+  font-family: inherit;
+  font-size: 20px;
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+button:active {
+  background: #aaa;
+}
+
+.clear {
+  grid-column: span 3;
+  background: #ff4444;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+  <div class="panel">
+    <h1>ENTER CODE</h1>
+    <div class="display" id="display"></div>
+
+    <div class="keypad">
+      <button onclick="press(7)">7</button>
+      <button onclick="press(8)">8</button>
+      <button onclick="press(9)">9</button>
+
+      <button onclick="press(4)">4</button>
+      <button onclick="press(5)">5</button>
+      <button onclick="press(6)">6</button>
+
+      <button onclick="press(1)">1</button>
+      <button onclick="press(2)">2</button>
+      <button onclick="press(3)">3</button>
+
+      <button class="clear" onclick="clearCode()">CLEAR</button>
+    </div>
+  </div>
+
+<script>
+let code = "";
+
+// mapa código -> página
+const codeMap = {
+  "1225": "https://blakewolfy.github.io/projects/devlog/timeruneteaser.html"
+};
+
+function press(num) {
+  if (code.length >= 4) return;
+
+  code += num;
+  updateDisplay();
+
+  if (code.length === 4) {
+    if (codeMap[code]) {
+      window.location.href = codeMap[code];
+    }
+  }
+}
+
+function clearCode() {
+  code = "";
+  updateDisplay();
+}
+
+function updateDisplay() {
+  document.getElementById("display").textContent = code;
+}
+</script>
+</body>
+  </html>
