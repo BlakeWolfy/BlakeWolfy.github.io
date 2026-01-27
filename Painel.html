@@ -41,7 +41,7 @@ h1 {
 
 .keypad {
   display: grid;
-  grid-template-columns: repeat(3, 72px);
+  grid-template-columns: repeat(4, 72px);
   gap: 14px;
   justify-content: center;
 }
@@ -61,10 +61,12 @@ button:active {
   background: linear-gradient(180deg, #bbb, #999);
 }
 
-.zero { grid-column: 2; }
+.zero {
+  grid-column: 2 / span 2;
+}
 
 .clear {
-  grid-column: span 3;
+  grid-column: 1 / span 4;
   height: 60px;
   background: linear-gradient(180deg, #ff5a5a, #cc0000);
   color: white;
@@ -74,27 +76,25 @@ button:active {
 </head>
 
 <body>
-<div class="panel">
-  <h1>ENTER CODE</h1>
+<div class="keypad" id="keypad">
+  <button onclick="press(7)">7</button>
+  <button onclick="press(8)">8</button>
+  <button onclick="press(9)">9</button>
+  <div></div>
 
-  <div class="display" id="display"></div>
+  <button onclick="press(4)">4</button>
+  <button onclick="press(5)">5</button>
+  <button onclick="press(6)">6</button>
+  <div></div>
 
-  <div class="keypad" id="keypad">
-    <button onclick="press(7)">7</button>
-    <button onclick="press(8)">8</button>
-    <button onclick="press(9)">9</button>
+  <button onclick="press(1)">1</button>
+  <button onclick="press(2)">2</button>
+  <button onclick="press(3)">3</button>
+  <div></div>
 
-    <button onclick="press(4)">4</button>
-    <button onclick="press(5)">5</button>
-    <button onclick="press(6)">6</button>
-
-    <button onclick="press(1)">1</button>
-    <button onclick="press(2)">2</button>
-    <button onclick="press(3)">3</button>
-
-    <button class="zero" onclick="press(0)">0</button>
-    <button class="clear" onclick="clearCode()">CLEAR</button>
-  </div>
+  <button class="zero" onclick="press(0)">0</button>
+  <button class="clear" onclick="clearCode()">CLEAR</button>
+</div>
 </div>
 
 <script>
