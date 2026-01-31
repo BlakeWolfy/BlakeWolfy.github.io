@@ -33,46 +33,6 @@ section{ padding:80px 0; }
   margin-bottom:40px;
 }
 
-/* ===== SUBSCRIBE ===== */
-.subscribe{
-  max-width:420px;
-  margin:0 auto;
-  background:rgba(10,14,30,0.75);
-  border-radius:24px;
-  padding:32px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.6);
-}
-
-.subscribe h2{ margin-bottom:12px; }
-.subscribe p{ opacity:0.85; margin-bottom:20px; }
-
-.subscribe input{
-  width:100%;
-  padding:14px;
-  border-radius:14px;
-  border:none;
-  background:#0c1230;
-  color:#eaeaea;
-  margin-bottom:16px;
-}
-
-.subscribe button{
-  width:100%;
-  padding:14px;
-  border-radius:16px;
-  border:none;
-  font-weight:700;
-  background:linear-gradient(135deg,#00ff88,#00cc6a);
-  color:#032013;
-  cursor:pointer;
-}
-
-#msg{
-  margin-top:12px;
-  font-size:14px;
-  text-align:center;
-}
-
 /* ===== EXPLORE PROJECTS CTA ===== */
 .explore{
   text-align:center;
@@ -174,18 +134,6 @@ section{ padding:80px 0; }
 <!-- HERO -->
 <section class="hero">
   <img src="assets/imagens/wolfy-banner.png" alt="Wolfy Blake">
-
-  <div class="subscribe">
-    <h2>Assine para receber updates!</h2>
-    <p>Projetos, devlogs e experimentos criativos.</p>
-
-    <form id="signupForm">
-      <input type="email" id="email" placeholder="Seu e-mail..." required>
-      <button type="submit">Receber updates</button>
-    </form>
-
-    <div id="msg"></div>
-  </div>
 </section>
 
 <!-- EXPLORE PROJECTS -->
@@ -218,45 +166,6 @@ section{ padding:80px 0; }
 </section>
 
 </div>
-
-<script>
-const form = document.getElementById("signupForm");
-const msg = document.getElementById("msg");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-
-  msg.textContent = "Enviando...";
-  msg.style.opacity = 0.7;
-
-  try {
-    const res = await fetch(
-      "https://wolfy-signup-backend.vercel.app/api/subscribe",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email })
-      }
-    );
-
-    const data = await res.json();
-
-    if (data.success) {
-      msg.textContent = "Email cadastrado com sucesso!";
-      msg.style.color = "#00ff88";
-      form.reset();
-    } else {
-      msg.textContent = "Erro ao cadastrar email.";
-      msg.style.color = "red";
-    }
-  } catch (err) {
-    msg.textContent = "Erro de conexão.";
-    msg.style.color = "red";
-  }
-});
-</script>
 
 </body>
 </html>
