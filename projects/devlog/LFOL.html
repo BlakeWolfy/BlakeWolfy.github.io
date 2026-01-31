@@ -26,7 +26,6 @@ h1{
   margin-bottom:24px;
 }
 
-/* TÍTULOS */
 h2{
   margin-top:30px;
   text-shadow:0 0 10px rgba(255,255,255,0.25);
@@ -42,6 +41,16 @@ h2.monsters{
   text-shadow:0 0 10px rgba(255,179,106,0.7);
 }
 
+h3{
+  margin-top:24px;
+  color:#ffffff;
+}
+
+h4{
+  margin-top:16px;
+  color:#cccccc;
+}
+
 p{
   margin-bottom:16px;
   line-height:1.5;
@@ -53,7 +62,6 @@ p{
   margin-bottom:12px;
 }
 
-/* IMAGENS */
 img{
   max-width:100%;
   border-radius:12px;
@@ -68,7 +76,6 @@ img{
   filter: drop-shadow(0 0 20px rgba(255,179,106,0.6));
 }
 
-/* NAV */
 .nav{
   text-align:center;
   margin-bottom:40px;
@@ -83,9 +90,28 @@ img{
 .nav a:hover{
   text-decoration:underline;
 }
+
+article{
+  margin-bottom:40px;
+  border-left:3px solid #555;
+  padding-left:16px;
+}
+
+article h3{
+  margin-bottom:8px;
+}
+
+article ul{
+  list-style:none;
+  padding-left:0;
+  margin-bottom:16px;
+}
+
+article ul li{
+  margin-bottom:6px;
+}
 </style>
 </head>
-
 <body>
 <div class="container">
 
@@ -96,11 +122,7 @@ img{
 
   <h1>Last Flame of Life</h1>
 
-  <img 
-    src="../../assets/imagens/last-flame-of-life.png" 
-    alt="Last Flame of Life"
-    class="img-survivors"
-  >
+  <img src="../../assets/imagens/last-flame-of-life.png" alt="Last Flame of Life" class="img-survivors">
 
   <h2>Ideia</h2>
   <p>
@@ -108,33 +130,373 @@ img{
     Os assassinos são chamados de <strong>Monstros</strong>.
   </p>
 
-  <!-- SOBREVIVENTES -->
-  <h2 class="survivors">Sobreviventes</h2>
-  <p class="section-note">
-    Personagens jogáveis focados em cooperação, estratégia e sobrevivência.
+  <h2>Lore do Inferno Infinito</h2>
+  <p>
+    Quando vários universos colapsam, uma Chama de Vida escolhe indivíduos de cada mundo e os leva ao Inferno Infinito, 
+    um lugar fora do tempo onde eles vivem novamente. Nem todos mantêm a sanidade, gerando os Monstros. 
+    Os mapas das rodadas são fragmentos dos universos de cada personagem, e os Sobreviventes precisam completar missões 
+    e sobreviver enquanto enfrentam essas entidades.
   </p>
 
-  <img 
-    src="../../assets/imagens/LFOL_chars1.png" 
-    alt="Sobreviventes de Last Flame of Life"
-    class="img-survivors"
-  >
+  <h2 class="survivors">🌨️ Sobreviventes</h2>
+  <p class="section-note">Personagens jogáveis focados em cooperação, estratégia e sobrevivência.</p>
 
-  <!-- MONSTROS -->
-  <h2 class="monsters">Monstros</h2>
-  <p class="section-note">
-    As entidades que caçam os sobreviventes.jogaveis também.
-  </p>
+  <!-- Blake Frost -->
+  <article>
+    <h3>❄️ BLAKE FROST</h3>
+    <ul>
+      <li>Classe: Sobrevivente</li>
+      <li>Tier: ⭐ GOLD TIER</li>
+      <li>Universo: H1 — Reinos Elementais</li>
+      <li>Elemento: Gelo</li>
+    </ul>
+    <h4>🧊 Descrição</h4>
+    <p>
+      Blake Frost é herdeiro do gelo absoluto, descendente de uma linhagem elemental criada a partir de um pacto divino feito há 100.000 anos. 
+      Seu corpo já não funciona como o de um humano comum: sangue azul, carne fria e ausência de dor. Sua temperatura é capaz de congelar o ambiente ao redor.
+      Calmo e melancólico, Blake carrega a culpa de ter congelado Jake Flame, seu melhor amigo, para impedir uma catástrofe maior. Desde então, vive em constante autocontrole, sabendo que perder o equilíbrio significa repetir a tragédia.
+    </p>
+    <h4>❄️ Habilidades</h4>
+    <ul>
+      <li>IceSpikes (Ativa): Lança 3 espinhos de gelo no Monstro (necessita mira). Stun 10s, aplica lentidão, cooldown 50s</li>
+      <li>IceShock (Ativa): Usa magia de gelo para acelerar objetivos. Completa 25% do progresso, cooldown 60s</li>
+      <li>ColdCurse (Passiva): Presença congela o terreno. Monstros frágeis ao gelo podem escorregar</li>
+    </ul>
+    <h4>📊 Status (Gold Tier)</h4>
+    <ul>
+      <li>Skill: ⭐⭐⭐⭐⭐</li>
+      <li>MovSpeed: ⭐⭐⭐☆☆</li>
+      <li>RunSpeed: ⭐⭐⭐☆☆</li>
+      <li>Stamina: ⭐⭐☆☆☆</li>
+      <li>InteractionRange: ⭐⭐⭐⭐⭐</li>
+      <li>Noise: ⭐⭐☆☆☆</li>
+    </ul>
+    <h4>🎨 Skins</h4>
+    <ul>
+      <li>IceSolid: Rosto congelado, flocos de neve sobre a roupa</li>
+      <li>BurningIce: Gelo derretendo, vapor saindo do corpo</li>
+    </ul>
+    <h4>👑 FATE Skins (What If)</h4>
+    <ul>
+      <li>FATE I — Nível 25: Roupas maiores, coroa de gelo, rosto vazio</li>
+      <li>FATE II — Nível 50: Roupas maiores, coroa de gelo, rosto vazio, cinto de gelo, luvas pretas</li>
+      <li>FATE III — Nível 75: Ainda não revelado</li>
+      <li>FATE IV — Nível 100: Ainda não revelado</li>
+    </ul>
+    <p>“O gelo não escolhe. Ele apenas permanece.”</p>
+  </article>
 
-  <img 
-    src="../../assets/imagens/LFOL_chars2.png" 
-    alt="Monstros de Last Flame of Life"
-    class="img-monsters"
-  >
+  <!-- Blade -->
+  <article>
+    <h3>😈 BLADE</h3>
+    <ul>
+      <li>Classe: Sobrevivente</li>
+      <li>Tier: Normal</li>
+      <li>Universo: A2 — Cidade Caída de Robloxia</li>
+      <li>Espécie: Demônio</li>
+    </ul>
+    <h4>🩸 Descrição</h4>
+    <p>
+      Blade é um demônio oriundo da cidade caída de Robloxia. Diferente dos de sua espécie, luta ao lado dos sobreviventes para provar que nem todo demônio é mau. Misterioso e confiante, utiliza facas conjuradas de sua própria energia demoníaca e canaliza esse poder através de um ritual que cresce a cada confronto.
+    </p>
+    <h4>🔪 Habilidades</h4>
+    <ul>
+      <li>BloodStab (Ativa): Crava uma faca demoníaca no Monstro. Stun 10s, aumenta barra ritual 20%, cooldown 50s</li>
+      <li>DeathGrave (Ativa): Disponível quando a barra ritual atinge 100%. Corre até o Monstro, remove 25% da vida, cooldown 80s</li>
+      <li>DemoniacHeal (Ativa): Cura 40% da vida, consome 40% da barra ritual, cooldown 70s</li>
+    </ul>
+    <h4>📊 Status</h4>
+    <ul>
+      <li>Skill: ⭐⭐⭐⭐☆</li>
+      <li>MovSpeed: ⭐⭐⭐☆☆</li>
+      <li>RunSpeed: ⭐⭐⭐⭐☆</li>
+      <li>Stamina: ⭐⭐⭐☆☆</li>
+      <li>InteractionRange: ⭐⭐☆☆☆</li>
+      <li>Noise: ⭐⭐⭐☆☆</li>
+    </ul>
+    <h4>🎨 Skins</h4>
+    <ul>
+      <li>TwoFaced: Metade anjo, metade demônio</li>
+      <li>LateNight: Pijamas caros</li>
+    </ul>
+    <h4>👑 FATE Skins (What If)</h4>
+    <ul>
+      <li>FATE I — Nível 25: Blade no grupo do c00lkidd, cabelo com pontas vermelhas, jaqueta listrada vermelha, camisa preta, calça oversize bege</li>
+      <li>FATE II — Nível 50: Conhece dono do c00lkidd, jaqueta roxa quadriculada, camisa preta, calça oversize bege, cinto preto, aparência desajeitada</li>
+      <li>FATE III — Nível 75: Ainda não revelado</li>
+      <li>FATE IV — Nível 100: Ainda não revelado</li>
+    </ul>
+    <p>“Não importa o lado que eu venha… eu escolho quem eu protejo.”</p>
+  </article>
 
-  <h2>Status</h2>
-  <p>Em desenvolvimento.</p>
+  <!-- Bryce Burgerise -->
+  <article>
+    <h3>🍔 BRYCE BURGERISE</h3>
+    <ul>
+      <li>Classe: Sobrevivente</li>
+      <li>Tier: Normal</li>
+      <li>Universo: A4 — Robloxia (Apocalipse Zumbi)</li>
+      <li>Função: Suporte</li>
+    </ul>
+    <h4>🧠 Descrição</h4>
+    <p>
+      Bryce Burgerise sobreviveu ao colapso de sua Robloxia mantendo algo raro em mundos destruídos: leveza. Em meio ao apocalipse zumbi, ele ajuda os outros usando criatividade, comida improvisada e bom humor. Mesmo quando tudo parece perdido, Bryce continua tentando salvar quem ama — às vezes, pagando um preço alto por isso.
+    </p>
+    <h4>🍔 Habilidades</h4>
+    <ul>
+      <li>CheeseBurger! (Ativa): Cura 20% de um aliado. Se usado em Monstro, Bryce recebe 6% de dano. Cooldown 60s</li>
+      <li>DeliveryComing! (Ativa): Após 2 curas, aumenta velocidade 40% por 20s, cooldown 40s, 2 usos por rodada</li>
+      <li>HealerAura (Passiva): Permite ver localização de sobreviventes com vida baixa</li>
+    </ul>
+    <h4>📊 Status</h4>
+    <ul>
+      <li>Skill: ⭐⭐⭐⭐☆</li>
+      <li>MovSpeed: ⭐⭐⭐☆☆</li>
+      <li>RunSpeed: ⭐⭐⭐☆☆</li>
+      <li>Stamina: ⭐⭐⭐⭐☆</li>
+      <li>InteractionRange: ⭐⭐⭐☆☆</li>
+      <li>Noise: ⭐⭐⭐⭐☆</li>
+    </ul>
+    <h4>🎨 Skins</h4>
+    <ul>
+      <li>BurgerMonarch: Uniforme inspirado no Burger King</li>
+      <li>7burger7: Hambúrguer na cabeça</li>
+    </ul>
+    <h4>👑 FATE Skins (What If)</h4>
+    <ul>
+      <li>FATE I — Nível 25: Bryce tentou salvar Noob, pele levemente esverdeada, camiseta azul claro, calça cinza, rosto perturbado</li>
+      <li>FATE II — Nível 50: Bryce e Noob trocaram de lugar, pele verde, tentáculos saindo das costas, cabeça com buraco, rosto sorridente, olhos confusos</li>
+      <li>FATE III — Nível 75: Ainda não revelado</li>
+      <li>FATE IV — Nível 100: Ainda não revelado</li>
+    </ul>
+    <p>“Mesmo no fim do mundo… alguém precisa cuidar do time.” 🍔</p>
+  </article>
+
+  <!-- Carter Firly -->
+  <article>
+    <h3>🔥 CARTER FIRLY</h3>
+    <ul>
+      <li>Classe: Sobrevivente</li>
+      <li>Tier: Normal</li>
+      <li>Universo: B7 — Cidade Elemental do Fogo</li>
+      <li>Elemento: Fogo</li>
+    </ul>
+    <h4>🔥 Descrição</h4>
+    <p>
+      Carter Firly é um mensageiro elemental da Cidade do Fogo. Seu corpo é feito de chamas vivas, seus cinco olhos observam tudo e sua bolsa de carteiro carrega cartas capazes de confundir, curar ou amaldiçoar. No Inferno Infinito, Carter entrega tempo para sobreviver.
+    </p>
+    <h4>✉️🔥 Habilidades</h4>
+    <ul>
+      <li>MailHere! (Ativa): Joga cartas amaldiçoadas invisíveis no chão. Se Monstro pisar, tela coberta por fogo 5s, cooldown 20s</li>
+      <li>LightCard! (Ativa): Esconde cartas de cura, cura 1% a cada 5s, limite 3 cartas, cooldown 40s</li>
+      <li>FirlyFury (Passiva): Algumas cartas podem pegar fogo, aumenta tempo de tontura aplicado ao Monstro</li>
+    </ul>
+    <h4>📊 Status</h4>
+    <ul>
+      <li>Skill: ⭐⭐⭐⭐☆</li>
+      <li>MovSpeed: ⭐⭐⭐☆☆</li>
+      <li>RunSpeed: ⭐⭐⭐☆☆</li>
+      <li>Stamina: ⭐⭐⭐☆☆</li>
+      <li>InteractionRange: ⭐⭐⭐⭐☆</li>
+      <li>Noise: ⭐⭐⭐☆☆</li>
+    </ul>
+    <h4>🎨 Skins</h4>
+    <ul>
+      <li>BluuFire: Chamas azuis</li>
+      <li>StrawberryMint: Metade fogo rosa, metade fogo verde</li>
+    </ul>
+    <h4>👑 FATE Skins</h4>
+    <ul>
+      <li>Ainda não definidas</li>
+    </ul>
+    <p>“Toda carta chega ao destino.” 🔥✉️</p>
+  </article>
+
+  <h2 class="monsters">🔥 Monstros</h2>
+  <p class="section-note">Entidades que caçam os sobreviventes.</p>
+
+  <!-- Jake Flame -->
+  <article>
+    <h3>🔥 JAKE FLAME</h3>
+    <ul>
+      <li>Classe: Monstro</li>
+      <li>Tier: ⭐ GOLD TIER</li>
+      <li>Universo: H1 — Reinos Elementais</li>
+      <li>Elemento: Fogo</li>
+    </ul>
+    <h4>🔥 Descrição</h4>
+    <p>
+      Jake Flame é o herdeiro do fogo elemental, descendente direto de uma linhagem criada a partir do pacto divino feito há 100.000 anos. Antes um guerreiro justo e caloroso, Jake foi consumido pelo ódio após a morte de seu pai, causada por alguém da família Frost. Suas chamas, antes símbolo de vida, tornaram-se destruição pura.
+      Mesmo após ter sido congelado por Blake Frost, Jake permanece preso em um ciclo de fúria e fogo. No Inferno Infinito, ele desperta repetidamente — não para buscar justiça, mas para queimar tudo que se move.
+    </p>
+    <h4>🔥 Habilidades</h4>
+    <ul>
+      <li>Soco Básico (Ativa): Ataque corpo a corpo rápido, causa 5 de dano, cooldown 1s</li>
+      <li>Firearm (Ativa): Soco de fogo no Sobrevivente em mira, aplica OnFire, cooldown 20s</li>
+      <li>FireBuster (Ativa): Rajada de fogo em linha reta, dispersa ao atingir parede, cooldown 40s</li>
+      <li>MagmaFlames (Passiva): Imune a escorregões de gelo e cartas amaldiçoadas</li>
+    </ul>
+    <h4>📊 Status (Gold Tier)</h4>
+    <ul>
+      <li>Skill: ⭐⭐⭐⭐⭐</li>
+      <li>MovSpeed: ⭐⭐⭐⭐☆</li>
+      <li>RunSpeed: ⭐⭐⭐⭐⭐</li>
+      <li>Stamina: ⭐⭐⭐☆☆</li>
+      <li>InteractionRange: ⭐⭐☆☆☆</li>
+      <li>Noise: ⭐⭐⭐⭐☆</li>
+    </ul>
+    <p>“O gelo tentou me parar… só me ensinou a queimar mais forte.” 🔥</p>
+  </article>
+
+  <!-- c00lkidd -->
+  <article>
+    <h3>💻 c00lkidd</h3>
+    <ul>
+      <li>Classe: Monstro</li>
+      <li>Tier: Normal</li>
+      <li>Universo: A2 — Cidade Caída de Robloxia</li>
+      <li>Identidade: Conta Autônoma / Hacker Vivo</li>
+    </ul>
+    <h4>💾 Descrição</h4>
+    <p>
+      c00lkidd é uma conta que já foi usada por um hacker para destruir jogos no Roblox. Com o tempo, os rastros de código, exploits e corrupção digital se fundiram, absorvendo poderes de hacker até que a conta criou vida própria.
+      Agora, c00lkidd não precisa de um dono. Ele existe como uma entidade digital consciente, capaz de manipular o mundo ao seu redor como se fosse apenas mais um sistema a ser quebrado.
+      No Inferno Infinito, ele não mata por diversão. Ele mata para provar que ainda é o administrador.
+    </p>
+    <h4>💻 Habilidades</h4>
+    <ul>
+      <li>SystemPunch (Ativa): Ataque corpo a corpo com energia digital, causa 6 de dano, cooldown 1s</li>
+      <li>Override! (Ativa): Invade o sistema de um Sobrevivente na mira, aplica Glitch 6s, cooldown 25s</li>
+      <li>MapCorrupt (Ativa): Corrompe área do mapa, luzes piscam, sons distorcidos, efeitos lentidão 10s, cooldown 45s</li>
+      <li>TrueAdmin (Passiva): Reduz cooldowns em 5%, imune a desorientação digital, mas ainda afetado por stun, lentidão, gelo e efeitos físicos</li>
+    </ul>
+    <h4>📊 Status</h4>
+    <ul>
+      <li>Skill: ⭐⭐⭐⭐☆</li>
+      <li>MovSpeed: ⭐⭐⭐⭐☆</li>
+      <li>RunSpeed: ⭐⭐⭐⭐☆</li>
+      <li>Stamina: ⭐⭐⭐☆☆</li>
+      <li>InteractionRange: ⭐⭐⭐☆☆</li>
+      <li>Noise: ⭐⭐⭐⭐⭐</li>
+    </ul>
+    <h4>🎨 Skins</h4>
+    <ul>
+      <li>R0b0tkidd: Aparência totalmente cibernética, corpo robótico</li>
+      <li>T0w3rs4M3: Vestes de rei, coroa</li>
+    </ul>
+    <h4>👑 FATE Skins (What If)</h4>
+    <ul>
+      <li>FATE I — Nível 25: Nunca banido do Roblox, aparência mais humana</li>
+      <li>FATE II — Nível 50: Dono nunca hackeou, hambúrguer na cabeça, roupas azuis e brancas</li>
+      <li>FATE III — Nível 75: Ainda não revelado</li>
+      <li>FATE IV — Nível 100: Ainda não revelado</li>
+    </ul>
+    <p>“TEAM COOLKIDD JOIN TODAY!” 💻</p>
+  </article>
+
+  <!-- Friendly Fire -->
+  <article>
+    <h3>🟩🔥 FRIENDLY FIRE</h3>
+    <ul>
+      <li>Classe: Monstro</li>
+      <li>Tier: Normal</li>
+      <li>Universo: B7 — Cidade Elemental do Fogo</li>
+      <li>Entidade: Elemental Instável</li>
+      <li>Elemento: Fogo Verde</li>
+    </ul>
+    <h4>🟩🔥 Descrição</h4>
+    <p>
+      Friendly Fire é uma entidade elemental corrompida da Cidade Elemental do Fogo. Criado a partir da mesma essência elemental que Carter Firly, seu fogo tomou um caminho diferente: instável, caótico e sem distinção. Sua chama verde simboliza erro elemental — um fogo que não reconhece aliados.
+      No Inferno Infinito, Friendly Fire não caça por ódio ou prazer. Ele ataca porque tudo é um alvo válido.
+    </p>
+    <h4>🟩🔥 Habilidades</h4>
+    <ul>
+      <li>BasicStrike (Ativa): Ataque corpo a corpo instável, causa 5 de dano, cooldown 1s</li>
+      <li>SpeedShift (Ativa): Explosão de fogo verde sob os pés, aumenta velocidade 30% por 10s, cooldown 30s</li>
+      <li>Misfire (Ativa): Explosão caótica ao redor, desorienta 4s, pode atingir qualquer entidade próxima, cooldown 40s</li>
+      <li>UnstableMomentum (Passiva): Ganha velocidade gradualmente sem causar dano, reseta ao atacar</li>
+    </ul>
+    <h4>📊 Status</h4>
+    <ul>
+      <li>Skill: ⭐⭐⭐☆☆</li>
+      <li>MovSpeed: ⭐⭐⭐⭐☆</li>
+      <li>RunSpeed: ⭐⭐⭐⭐⭐</li>
+      <li>Stamina: ⭐⭐⭐☆☆</li>
+      <li>InteractionRange: ⭐⭐☆☆☆</li>
+      <li>Noise: ⭐⭐⭐⭐☆</li>
+    </ul>
+    <h4>🎨 Aparência Base</h4>
+    <ul>
+      <li>Pele preta absoluta</li>
+      <li>Quatro olhos brilhantes</li>
+      <li>Fogo verde constante saindo da cabeça</li>
+      <li>Pano verde rasgado como capa cobrindo o braço direito</li>
+    </ul>
+    <h4>🎨 Skins</h4>
+    <ul>
+      <li>SpiderDanger: Tentáculos nas costas lembrando pernas de aranha, teia no lugar da capa</li>
+      <li>Haz4rd: Fogo com aparência radioativa, brilho tóxico intenso</li>
+    </ul>
+    <h4>👑 FATE Skins</h4>
+    <ul>
+      <li>Ainda não definidas</li>
+    </ul>
+    <p>“Se tudo pode ser atingido… então tudo será.” 🟩🔥</p>
+  </article>
+
+  <!-- Noob Zombi -->
+  <article>
+    <h3>🥳🧟 NOOB ZOMBI</h3>
+    <ul>
+      <li>Classe: Monstro</li>
+      <li>Tier: Normal</li>
+      <li>Universo: A4 — Robloxia (Apocalipse Zumbi)</li>
+      <li>Origem: Jogador abandonado</li>
+    </ul>
+    <h4>🧟 Descrição</h4>
+    <p>
+      Noob Zombi é o corpo de um jogador que deixou sua conta esquecida por anos, até que o apocalipse zumbi consumiu aquela versão de Robloxia. Sem memória e sem vontade própria, ele vaga guiado apenas por instinto.
+      Antes do colapso, era o melhor amigo de Bryce Burgerise. Agora, é apenas uma lembrança corrompida, presa no Inferno Infinito — algo que ainda anda, mas não vive.
+    </p>
+    <h4>🧟 Habilidades</h4>
+    <ul>
+      <li>ZombieHit (Ativa): Ataque corpo a corpo básico, causa 5 de dano, cooldown 1s</li>
+      <li>RottingGrab (Ativa): Ataque com tentáculos, causa 10 de dano, imobiliza brevemente, cooldown 25s</li>
+      <li>GroanCall (Ativa): Gemido alto que revela sobreviventes próximos e aumenta ruído/medo, cooldown 35s</li>
+      <li>LastMinuteRush (Passiva): Aumenta velocidade quanto menos tempo resta, termina ao fim da rodada</li>
+    </ul>
+    <h4>📊 Status</h4>
+    <ul>
+      <li>Skill: ⭐⭐☆☆☆</li>
+      <li>MovSpeed: ⭐⭐⭐☆☆</li>
+      <li>RunSpeed: ⭐⭐⭐⭐☆</li>
+      <li>Stamina: ⭐⭐⭐☆☆</li>
+      <li>InteractionRange: ⭐⭐☆☆☆</li>
+      <li>Noise: ⭐⭐⭐⭐⭐</li>
+    </ul>
+    <h4>🎨 Aparência Base</h4>
+    <ul>
+      <li>Visual clássico de Noob</li>
+      <li>Corpo parcialmente apodrecido</li>
+      <li>Tentáculos visíveis</li>
+      <li>Movimento desengonçado</li>
+      <li>Grunhidos constantes de zumbi</li>
+    </ul>
+    <h4>🎨 Skins</h4>
+    <ul>
+      <li>XxGuestxX: Aparência de Guest, mais vazio e corrompido</li>
+      <li>Past: Noob quase normal, ainda com tentáculos, boca pronta para morder, grunhidos de zumbi</li>
+    </ul>
+    <h4>👑 FATE Skins (What If)</h4>
+    <ul>
+      <li>FATE I — Nível 25: Bryce tentou salvar Noob, aparência menos zumbificada, ainda infectado pelo vírus zumbi</li>
+      <li>FATE II — Nível 50: Bryce e Noob trocaram de lugar, aparência de Noob normal, mantém tentáculos, parece mais vivo, emite falas pedindo socorro</li>
+      <li>FATE III — Nível 75: Ainda não revelado</li>
+      <li>FATE IV — Nível 100: Ainda não revelado</li>
+    </ul>
+    <p>“Ele ainda está online… mas ninguém responde.” 🧟🥳</p>
+  </article>
 
 </div>
 </body>
-</html>
+  </html>
